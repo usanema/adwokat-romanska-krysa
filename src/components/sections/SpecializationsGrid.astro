@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import SpecializationCard from '@components/ui/SpecializationCard.astro';
+
+// Get all specializations and sort by order
+const specializations = (await getCollection('specializations')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<section class="section bg-white">
+  <div class="container mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="caption text-burgundy mb-3">Czym się zajmujemy</p>
+      <h2 class="text-4xl md:text-5xl font-heading font-semibold text-gray-950 mb-4">
+        Nasze Specjalizacje
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Oferujemy kompleksową pomoc prawną w różnych dziedzinach prawa
+      </p>
+    </div>
+
+    <!-- Specializations Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {specializations.map((spec) => (
+        <SpecializationCard
+          title={spec.data.title}
+          description={spec.data.description}
+          icon={spec.data.icon}
+          href={`/specjalizacje/${spec.slug}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>

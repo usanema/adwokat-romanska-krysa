@@ -1,0 +1,32 @@
+[
+  {
+    "id": "romanska-krysa",
+    "name": "Adwokat Romańska Krysa",
+    "title": "Założycielka kancelarii",
+    "specializations": ["Prawo Karne", "Prawo Cywilne"],
+    "image": "/assets/images/team/romanska-krysa.jpg",
+    "bio": "Absolwentka Wydziału Prawa Uniwersytetu Warszawskiego. Posiada ponad 15 lat doświadczenia w prowadzeniu spraw karnych i cywilnych. Specjalizuje się w obrone w sprawach gospodarczych oraz skomplikowanych sprawach cywilnych. Reprezentowała klientów w setkach postępowań, uzyskując liczne korzystne wyroki.",
+    "email": "r.krysa@adwokat-rk.pl",
+    "phone": "+48 123 456 789"
+  },
+  {
+    "id": "jan-kowalski",
+    "name": "Adwokat Jan Kowalski",
+    "title": "Partner",
+    "specializations": ["Prawo Gospodarcze", "Prawo Spółek"],
+    "image": "/assets/images/team/kowalski.jpg",
+    "bio": "Specjalista z zakresu prawa gospodarczego z 10-letnim doświadczeniem. Prowadzi sprawy związane z prawem spółek, umowami handlowymi oraz transakcjami M&A. Doradza firmom w zakresie bieżącej działalności oraz strategicznych decyzji biznesowych.",
+    "email": "j.kowalski@adwokat-rk.pl",
+    "phone": "+48 123 456 790"
+  },
+  {
+    "id": "anna-nowak",
+    "name": "Adwokat Anna Nowak",
+    "title": "Senior Associate",
+    "specializations": ["Prawo Rodzinne", "Prawo Cywilne"],
+    "image": "/assets/images/team/nowak.jpg",
+    "bio": "Specjalistka w zakresie prawa rodzinnego i opiekuńczego. Z empatią i profesjonalizmem prowadzi sprawy rozwodowe, alimentacyjne oraz dotyczące władzy rodzicielskiej. Mediator sądowy, oferuje rozwiązania polubowne w sporach rodzinnych.",
+    "email": "a.nowak@adwokat-rk.pl",
+    "phone": "+48 123 456 791"
+  }
+]

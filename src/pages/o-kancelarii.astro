@@ -1,0 +1,162 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import Card from '@components/ui/Card.astro';
+import Icon from '@components/ui/Icon.astro';
+import Button from '@components/ui/Button.astro';
+import siteConfig from '@data/site-config.json';
+---
+
+<MainLayout
+  title="O Kancelarii"
+  description="Poznaj Kancelarię Adwokacką Romańska Krysa. Ponad 15 lat doświadczenia w świadczeniu profesjonalnej pomocy prawnej dla osób prywatnych i firm."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-20">
+    <div class="container mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-heading font-semibold text-gray-950 mb-6">
+        O Kancelarii
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Jesteśmy zespołem doświadczonych prawników, którzy z pasją i zaangażowaniem pomagają klientom w rozwiązywaniu problemów prawnych.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <!-- Text -->
+        <div>
+          <p class="caption text-burgundy mb-3">Nasza historia</p>
+          <h2 class="text-4xl font-heading font-semibold text-gray-950 mb-6">
+            15 lat doświadczenia w służbie prawa
+          </h2>
+          <div class="prose prose-lg text-gray-700 space-y-4">
+            <p>
+              Kancelaria Adwokacka Romańska Krysa została założona w 2009 roku z misją świadczenia najwyższej jakości usług prawnych dostępnych zarówno dla osób prywatnych, jak i przedsiębiorstw.
+            </p>
+            <p>
+              Od samego początku naszym celem było budowanie długotrwałych relacji z klientami, opartych na zaufaniu, profesjonalizmie i indywidualnym podejściu do każdej sprawy.
+            </p>
+            <p>
+              Przez lata zdobyliśmy bogate doświadczenie w wielu dziedzinach prawa, prowadząc setki spraw przed sądami różnych instancji i uzyskując korzystne rozstrzygnięcia dla naszych klientów.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image Placeholder -->
+        <div class="relative">
+          <Card variant="default" padding="md">
+            <div class="aspect-w-4 aspect-h-3 bg-gray-200 rounded-lg flex items-center justify-center">
+              <p class="text-gray-500">Zdjęcie kancelarii</p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="section bg-gray-50">
+    <div class="container mx-auto">
+      <div class="text-center mb-16">
+        <p class="caption text-burgundy mb-3">Nasze wartości</p>
+        <h2 class="text-4xl font-heading font-semibold text-gray-950 mb-4">
+          Co nas wyróżnia
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Value 1 -->
+        <Card variant="default" padding="lg" class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-burgundy-light text-burgundy rounded-xl mb-4">
+            <Icon name="shield" size="lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-950 mb-3">Zaufanie</h3>
+          <p class="text-gray-600">
+            Dyskrecja i poufność to podstawa naszej pracy. Twoje sprawy są w bezpiecznych rękach.
+          </p>
+        </Card>
+
+        <!-- Value 2 -->
+        <Card variant="default" padding="lg" class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-burgundy-light text-burgundy rounded-xl mb-4">
+            <Icon name="scale" size="lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-950 mb-3">Profesjonalizm</h3>
+          <p class="text-gray-600">
+            Stale podnosimy kwalifikacje i śledzimy zmiany w prawie, aby świadczyć usługi na najwyższym poziomie.
+          </p>
+        </Card>
+
+        <!-- Value 3 -->
+        <Card variant="default" padding="lg" class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-burgundy-light text-burgundy rounded-xl mb-4">
+            <Icon name="users" size="lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-950 mb-3">Indywidualne podejście</h3>
+          <p class="text-gray-600">
+            Każda sprawa jest wyjątkowa. Dostosowujemy strategię do Twoich potrzeb i oczekiwań.
+          </p>
+        </Card>
+
+        <!-- Value 4 -->
+        <Card variant="default" padding="lg" class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-burgundy-light text-burgundy rounded-xl mb-4">
+            <Icon name="check" size="lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-950 mb-3">Skuteczność</h3>
+          <p class="text-gray-600">
+            Naszym celem jest osiągnięcie najlepszego możliwego rezultatu dla każdego klienta.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-heading font-semibold text-gray-950 mb-4">
+          Dlaczego warto nas wybrać
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {siteConfig.features.map((feature) => (
+          <Card variant="flat" padding="lg">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-burgundy-light text-burgundy rounded-lg flex items-center justify-center">
+                <Icon name="check" size="md" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-950 mb-2">{feature.title}</h3>
+                <p class="text-gray-600">{feature.description}</p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-burgundy text-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-heading font-semibold mb-6">
+        Gotowy na rozmowę?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Skontaktuj się z nami już dziś i umów bezpłatną konsultację. Chętnie omówimy Twoją sprawę.
+      </p>
+      <a
+        href="/kontakt"
+        class="inline-flex items-center px-8 py-4 bg-white text-burgundy text-lg font-semibold rounded-lg hover:bg-gray-50 transition-all duration-150 hover:shadow-lg"
+      >
+        Umów konsultację
+      </a>
+    </div>
+  </section>
+</MainLayout>

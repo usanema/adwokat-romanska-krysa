@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+import Card from '@components/ui/Card.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('pl-PL', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+}
+---
+
+<MainLayout
+  title="Blog"
+  description="Blog prawniczy Kancelarii Adwokackiej Romańska Krysa. Aktualne informacje, porady prawne i komentarze do zmian w prawie."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-20">
+    <div class="container mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-heading font-semibold text-gray-950 mb-6">
+        Blog
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Aktualne informacje prawne, porady i komentarze do zmian w prawie
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="section">
+    <div class="container mx-auto">
+      {posts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group block">
+              <Card variant="hover" padding="md">
+                {/* Image placeholder */}
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+                  {post.data.image ? (
+                    <img
+                      src={post.data.image}
+                      alt={post.data.title}
+                      class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                      <span class="text-gray-400">Zdjęcie</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Tags */}
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {post.data.tags.slice(0, 2).map((tag) => (
+                    <span class="px-2 py-1 bg-burgundy-light text-burgundy text-xs font-medium rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Title */}
+                <h2 class="text-xl font-heading font-semibold text-gray-950 mb-2 group-hover:text-burgundy transition-colors">
+                  {post.data.title}
+                </h2>
+
+                {/* Description */}
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {post.data.description}
+                </p>
+
+                {/* Meta */}
+                <div class="flex items-center justify-between text-sm text-gray-500">
+                  <span>{post.data.author}</span>
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                </div>
+              </Card>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <p class="text-xl text-gray-600">
+            Wkrótce pojawią się tutaj pierwsze wpisy na blogu.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+</MainLayout>

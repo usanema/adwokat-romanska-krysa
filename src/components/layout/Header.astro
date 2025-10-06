@@ -1,0 +1,124 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'O Kancelarii', href: '/o-kancelarii' },
+  { label: 'Specjalizacje', href: '/specjalizacje' },
+  { label: 'Zespół', href: '/zespol' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Kontakt', href: '/kontakt' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-shadow">
+  <nav class="container mx-auto">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="flex items-center justify-center w-10 h-10 bg-burgundy rounded-lg transition-transform group-hover:scale-105">
+          <span class="text-white font-heading text-xl font-semibold">RK</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading text-lg font-semibold text-gray-950 leading-none">
+            Romańska Krysa
+          </span>
+          <span class="text-xs text-gray-500 leading-none mt-0.5">
+            Kancelaria Adwokacka
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`text-sm font-medium transition-colors relative group ${
+              currentPath.startsWith(item.href)
+                ? 'text-burgundy'
+                : 'text-gray-700 hover:text-burgundy'
+            }`}
+          >
+            {item.label}
+            {currentPath.startsWith(item.href) && (
+              <span class="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-burgundy" />
+            )}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Button -->
+      <a
+        href="/kontakt"
+        class="hidden md:inline-flex items-center px-5 py-2.5 bg-burgundy text-white text-sm font-semibold rounded-lg hover:bg-burgundy-dark transition-all duration-150 hover:shadow-md hover:-translate-y-0.5"
+      >
+        Bezpłatna Konsultacja
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-burgundy"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden border-t border-gray-100 py-4"
+    >
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${
+            currentPath.startsWith(item.href)
+              ? 'text-burgundy bg-burgundy-light'
+              : 'text-gray-700 hover:bg-gray-50'
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/kontakt"
+        class="block mt-4 px-4 py-3 bg-burgundy text-white text-center font-semibold rounded-lg hover:bg-burgundy-dark transition-colors"
+      >
+        Bezpłatna Konsultacja
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
+    if (isHidden) {
+      menu?.classList.remove('hidden');
+      button?.setAttribute('aria-expanded', 'true');
+    } else {
+      menu?.classList.add('hidden');
+      button?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

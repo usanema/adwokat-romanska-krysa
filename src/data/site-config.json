@@ -1,0 +1,43 @@
+{
+  "name": "Kancelaria Adwokacka Romańska Krysa",
+  "shortName": "Adwokat Romańska Krysa",
+  "description": "Profesjonalna pomoc prawna, której możesz zaufać. Kompleksowa obsługa prawna dla osób prywatnych i firm.",
+  "tagline": "Profesjonalna pomoc prawna, której możesz zaufać",
+  "contact": {
+    "address": {
+      "street": "ul. Przykładowa 1",
+      "city": "Warszawa",
+      "postalCode": "00-000",
+      "country": "Polska"
+    },
+    "phone": "+48 123 456 789",
+    "email": "kontakt@adwokat-rk.pl",
+    "hours": {
+      "weekdays": "Poniedziałek - Piątek: 9:00 - 17:00",
+      "weekend": "Sobota - Niedziela: Zamknięte"
+    }
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/company/adwokat-rk",
+    "facebook": "https://facebook.com/adwokat.rk",
+    "twitter": "https://twitter.com/adwokat_rk"
+  },
+  "features": [
+    {
+      "title": "Ponad 15 lat doświadczenia",
+      "description": "Setki wygranych spraw i zadowolonych klientów"
+    },
+    {
+      "title": "Kompleksowa obsługa",
+      "description": "Pełen zakres usług prawnych w jednym miejscu"
+    },
+    {
+      "title": "Bezpłatna konsultacja",
+      "description": "Pierwsza rozmowa zawsze bez zobowiązań"
+    },
+    {
+      "title": "Dostępność 24/7",
+      "description": "W sprawach pilnych jesteśmy zawsze do dyspozycji"
+    }
+  ]
+}

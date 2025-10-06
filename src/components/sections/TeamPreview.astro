@@ -1,0 +1,39 @@
+---
+import TeamMember from '@components/ui/TeamMember.astro';
+import Button from '@components/ui/Button.astro';
+import team from '@data/team.json';
+---
+
+<section class="section bg-white">
+  <div class="container mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="caption text-burgundy mb-3">Poznaj nas</p>
+      <h2 class="text-4xl md:text-5xl font-heading font-semibold text-gray-950 mb-4">
+        Nasz Zespół
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Doświadczeni prawnicy gotowi pomóc w Twojej sprawie
+      </p>
+    </div>
+
+    <!-- Team Grid - Show first 3 members -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {team.slice(0, 3).map((member) => (
+        <TeamMember
+          name={member.name}
+          title={member.title}
+          image={member.image}
+          href="/zespol"
+        />
+      ))}
+    </div>
+
+    <!-- CTA to full team page -->
+    <div class="text-center">
+      <Button variant="outline" size="md" href="/zespol">
+        Zobacz cały zespół
+      </Button>
+    </div>
+  </div>
+</section>

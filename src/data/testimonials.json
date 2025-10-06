@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "author": "Piotr M.",
+    "role": "Przedsiębiorca",
+    "content": "Profesjonalizm i zaangażowanie na najwyższym poziomie. Adwokat Romańska Krysa skutecznie reprezentowała mnie w skomplikowanej sprawie gospodarczej. Pełne wsparcie i jasna komunikacja przez cały czas trwania postępowania. Gorąco polecam!",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "author": "Katarzyna S.",
+    "role": "Klientka prywatna",
+    "content": "W bardzo trudnym dla mnie okresie rozwodu, kancelaria zapewniła mi nie tylko profesjonalne wsparcie prawne, ale też empatię i zrozumienie. Sprawy został a załatwiona sprawnie i zgodnie z moimi oczekiwaniami. Dziękuję!",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "author": "Robert K.",
+    "role": "Dyrektor firmy",
+    "content": "Współpracujemy z kancelarią od 3 lat w zakresie stałej obsługi prawnej. To partnerzy, na których można polegać. Szybka reakcja, merytoryczne doradztwo i praktyczne podejście do problemów. Współpraca na najwyższym poziomie.",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "author": "Maria W.",
+    "role": "Klientka prywatna",
+    "content": "Dzięki pomocy kancelarii udało mi się wygrać trudną sprawę spadkową. Profesjonalne przygotowanie, skuteczna reprezentacja przed sądem i stały kontakt - wszystko na medal. Polecam każdemu, kto potrzebuje rzetelnej pomocy prawnej.",
+    "rating": 5
+  }
+]
