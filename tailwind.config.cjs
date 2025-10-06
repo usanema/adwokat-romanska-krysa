@@ -4,10 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: {
+          DEFAULT: '#B8860B',
+          dark: '#8B6914',
+          light: '#FDF6E3',
+        },
+        // Backward compatibility alias
         burgundy: {
-          DEFAULT: '#8B1538',
-          dark: '#6B0F2A',
-          light: '#FFF5F7',
+          DEFAULT: '#B8860B',
+          dark: '#8B6914',
+          light: '#FDF6E3',
         },
         gray: {
           50: '#F8F9FA',
@@ -24,7 +30,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['Cormorant Garamond', 'serif'],
+        heading: ['Outfit', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       fontSize: {
