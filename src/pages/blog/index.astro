@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Blog | Adwokat Anna Romańska-Krysa">
+  <Header />
+  
+  <main>
+    <section class="page-header text-center">
+      <div class="container">
+        <h1>Baza Wiedzy</h1>
+        <p class="lead">Odpowiedzi na najczęstsze pytania moich Klientów.</p>
+        
+        <!-- Atrapa filtrów zgodnie z ui.md -->
+        <div class="filters">
+           <span class="active">Wszystkie</span>
+           <span>Prawo Karne</span>
+           <span>Rozwody</span>
+           <span>Spadki</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-grid-section">
+      <div class="container">
+        <div class="blog-grid">
+           <!-- Post 1 -->
+           <article class="post-card">
+             <div class="post-image-placeholder"></div>
+             <div class="post-content">
+               <span class="category">Prawo Karne</span>
+               <h3><a href="/blog/jazda-po-alkoholu-2026">Jazda po alkoholu - co grozi w 2026 roku?</a></h3>
+               <p>Zmiany w przepisach są surowe. Sprawdź, kiedy tracisz prawo jazdy bezpowrotnie.</p>
+               <a href="/blog/jazda-po-alkoholu-2026" class="read-more">Czytaj dalej</a>
+             </div>
+           </article>
+
+           <!-- Post 2 -->
+           <article class="post-card">
+             <div class="post-image-placeholder"></div>
+             <div class="post-content">
+               <span class="category">Rozwody</span>
+               <h3><a href="/blog/jak-wyglada-rozwod">Jak wygląda pierwsza rozprawa rozwodowa?</a></h3>
+               <p>Stresujesz się sądem? Wyjaśniam krok po kroku jak przebiega proces.</p>
+               <a href="/blog/jak-wyglada-rozwod" class="read-more">Czytaj dalej</a>
+             </div>
+           </article>
+           
+           <!-- Post 3 -->
+           <article class="post-card">
+             <div class="post-image-placeholder"></div>
+             <div class="post-content">
+               <span class="category">Spadki</span>
+               <h3><a href="/blog/zachowek-komu-sie-nalezy">Zachowek - komu się należy?</a></h3>
+               <p>Wydziedziczenie to nie to samo co brak prawa do zachowku. Poznaj różnice.</p>
+               <a href="/blog/zachowek-komu-sie-nalezy" class="read-more">Czytaj dalej</a>
+             </div>
+           </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg);
+  }
+  
+  .filters {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .filters span {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .filters span.active, .filters span:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  .blog-grid-section {
+    padding-bottom: var(--spacing-xxl);
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+  .post-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+  }
+  .post-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  .post-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+  }
+  .post-content {
+    padding: var(--spacing-md);
+  }
+  .category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+  .post-content h3 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+  }
+  .post-content a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .read-more {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 1rem;
+    display: inline-block;
+  }
+
+  @media(max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>

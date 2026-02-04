@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Kontakt | Adwokat Anna Romańska-Krysa">
+  <Header />
+  
+  <main>
+    <section class="page-header text-center">
+      <div class="container">
+        <h1>Skontaktuj się ze mną</h1>
+        <p class="lead">Twoja sprawa wymaga pilnej interwencji? Nie czekaj.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <h2>Napisz wiadomość</h2>
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Imię i Nazwisko</label>
+              <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="jan@example.com">
+            </div>
+            
+             <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789">
+            </div>
+
+            <div class="form-group">
+              <label for="topic">Temat</label>
+              <select id="topic" name="topic">
+                <option value="medyczne">Prawo Medyczne</option>
+                <option value="rodzinne">Prawo Rodzinne</option>
+                <option value="karne">Prawo Karne</option>
+                <option value="inne">Inne</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Wiadomość</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Opisz krótko swoją sprawę..."></textarea>
+            </div>
+
+            <div class="form-group checkbox">
+              <input type="checkbox" id="rodo" required>
+              <label for="rodo">Wyrażam zgodę na przetwarzanie danych osobowych w celu kontaktu.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Dane teleadresowe</h2>
+          
+          <div class="info-block">
+            <h3>Kancelaria Adwokacka</h3>
+            <p><strong>Adwokat Anna Romańska-Krysa</strong></p>
+            <p>ul. Przykładowa 1<br>40-000 Katowice</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Kontakt</h3>
+            <p>Email: <a href="mailto:kontakt@adwokat.pl">kontakt@adwokat.pl</a></p>
+            <p>Telefon: <a href="tel:+48123456789">+48 123 456 789</a></p>
+            <p class="note">Czynne pn-pt: 9:00 - 17:00</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Dojazd</h3>
+            <p>Kancelaria znajduje się w centrum Katowic. Dostępny parking miejski.</p>
+          </div>
+
+           <div class="map-placeholder">
+             Mapa Google
+           </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .contact-section {
+    padding-bottom: var(--spacing-xxl);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-xxl);
+  }
+  
+  .contact-form {
+    background: var(--color-white);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-family: inherit;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+  
+  .checkbox {
+    display: flex;
+    gap: 0.5rem;
+    align-items: start;
+    font-size: 0.875rem;
+  }
+  
+  .checkbox input {
+    width: auto;
+    margin-top: 0.2rem;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #2a4d3a;
+  }
+  
+  .info-block {
+    margin-bottom: var(--spacing-lg);
+  }
+  .note {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #E8E8E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+  }
+
+  @media(max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,258 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = [
+    {
+      slug: 'jazda-po-alkoholu-2026',
+      title: 'Jazda po alkoholu - co grozi w 2026 roku?',
+      category: 'Prawo Karne',
+      date: '10.01.2026',
+      readTime: '5 min',
+      content: [
+          { type: 'lead', text: 'Zmiany w przepisach są surowe. W 2026 roku sądy jeszcze rzadziej orzekają warunkowe umorzenie. Sprawdź, kiedy tracisz prawo jazdy bezpowrotnie.' },
+          { type: 'h2', text: 'Zaostrzenie kar za jazdę pod wpływem' },
+          { type: 'p', text: 'W ostatnich latach obserwujemy znaczne zaostrzenie polityki karnej wobec kierowców prowadzących pojazdy pod wpływem alkoholu. Nie jest to już tylko "wykroczenie", ale poważne przestępstwo, które może zaważyć na całej Twojej karierze zawodowej.' },
+          { type: 'quote', text: 'Pamiętaj: Odmowa badania alkomatem nie uchroni Cię przed odpowiedzialnością. W takim przypadku zostanie pobrana krew do badań.' },
+          { type: 'h2', text: 'Kiedy tracisz prawo jazdy?' },
+          { type: 'ul', items: ['Powyżej 0.5 promila - obligatoryjna utrata na minimum 3 lata', 'Recydywa - dożywotni zakaz prowadzenia pojazdów', 'Spowodowanie wypadku - kara pozbawienia wolności bez zawieszenia'] },
+          { type: 'cta', text: 'Zostałeś zatrzymany? Nie składaj wyjaśnień bez adwokata.' }
+      ]
+    },
+    {
+      slug: 'jak-wyglada-rozwod',
+      title: 'Jak wygląda pierwsza rozprawa rozwodowa?',
+      category: 'Rozwody',
+      date: '15.01.2026',
+      readTime: '7 min',
+       content: [
+          { type: 'lead', text: 'Stresujesz się wizytą w sądzie? To normalne. Wyjaśniam krok po kroku jak przebiega proces, abyś czuł się pewniej.' },
+          { type: 'h2', text: 'Wejście na salę sądową' },
+          { type: 'p', text: 'Rozprawa odbywa się w sądzie okręgowym. Pamiętaj, aby mieć przy sobie dowód osobisty. Na salę wchodzisz po wywołaniu sprawy przez protokolanta.' },
+          { type: 'h2', text: 'Pytania sądu' },
+          { type: 'p', text: 'Sąd zapyta przede wszystkim o to, czy nastąpił trwały i zupełny rozkład pożycia małżeńskiego. Będziesz musiał odpowiedzieć na pytania o więzi uczuciowe, fizyczne i gospodarcze.' }
+      ]
+    },
+    {
+      slug: 'zachowek-komu-sie-nalezy',
+      title: 'Zachowek - komu się należy?',
+      category: 'Spadki',
+      date: '20.01.2026',
+      readTime: '4 min',
+       content: [
+          { type: 'lead', text: 'Wydziedziczenie w testamencie to nie to samo co brak prawa do zachowku. Poznaj różnice i sprawdź, czy należą Ci się pieniądze.' },
+          { type: 'h2', text: 'Kto jest uprawniony do zachowku?' },
+          { type: 'p', text: 'Do zachowku uprawnieni są zstępni (dzieci, wnuki), małżonek oraz rodzice spadkodawcy, o ile byliby powołani do spadku z ustawy.' }
+      ]
+    }
+  ];
+
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} | Blog Adwokata`}>
+  <Header />
+  
+  <main class="post-page">
+    <div class="container grid-sidebar">
+      
+      <!-- LEWA KOLUMNA: ARTYKUŁ -->
+      <article class="content">
+        <!-- Okruszki -->
+        <nav class="breadcrumbs">
+            <a href="/">Strona Główna</a> &gt; <a href="/blog">Blog</a> &gt; <span>{post.category}</span>
+        </nav>
+
+        <header class="post-header">
+           <h1>{post.title}</h1>
+           <div class="post-meta">
+             <span>📅 {post.date}</span>
+             <span>⏱️ {post.readTime} czytania</span>
+             <span>👤 Adw. Anna Romańska-Krysa</span>
+           </div>
+        </header>
+
+        <div class="post-image-main">
+            <!-- Placeholder -->
+            <div class="img-placeholder">Zdjęcie Artykułu</div>
+        </div>
+
+        <div class="post-body">
+            {post.content.map(block => (
+                <>
+                    {block.type === 'lead' && <p class="lead">{block.text}</p>}
+                    {block.type === 'h2' && <h2>{block.text}</h2>}
+                    {block.type === 'p' && <p>{block.text}</p>}
+                    {block.type === 'quote' && <blockquote>{block.text}</blockquote>}
+                    {block.type === 'ul' && (
+                        <ul>
+                            {block.items.map(item => <li>{item}</li>)}
+                        </ul>
+                    )}
+                    {block.type === 'cta' && (
+                        <div class="cta-box">
+                            <h4>{block.text}</h4>
+                            <a href="/kontakt" class="btn btn-primary">Umów konsultację</a>
+                        </div>
+                    )}
+                </>
+            ))}
+        </div>
+        
+        <div class="post-footer-cta">
+             <h3>Potrzebujesz pomocy w podobnej sprawie?</h3>
+             <p>Ten artykuł wyjaśnił podstawy, ale każda sprawa jest inna. Skonsultuj swój przypadek.</p>
+             <a href="/kontakt" class="btn btn-outline">Umów poradę prawną</a>
+        </div>
+      </article>
+
+      <!-- PRAWA KOLUMNA: STICKY SIDEBAR -->
+      <aside class="sidebar sticky-sidebar">
+        
+        <!-- Widget Autora -->
+        <div class="author-widget">
+           <div class="author-avatar"></div>
+           <h4>Adw. Anna Romańska-Krysa</h4>
+           <p>Specjalizuję się w sprawach karnych i rodzinnych. Pomagam Klientom przejść przez najtrudniejsze momenty w życiu.</p>
+        </div>
+
+        <!-- Sticky Contact -->
+        <div class="contact-box">
+           <h3>Potrzebujesz pomocy?</h3>
+           <a href="tel:+48123456789" class="sidebar-phone">
+             📞 123 456 789
+           </a>
+           <a href="/kontakt" class="btn btn-primary full-width">Napisz E-mail</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .post-page {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .breadcrumbs {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 1rem;
+  }
+  
+  .post-image-main {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .img-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #E8E8E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+  }
+  
+  .post-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .post-body h2 {
+    margin-top: 2rem;
+  }
+  
+  blockquote {
+    border-left: 4px solid var(--color-accent);
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    background-color: var(--color-white);
+    font-style: italic;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+  }
+  
+  .cta-box {
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-accent);
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .post-footer-cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  /* Sidebar Specifics */
+  .author-widget {
+    background: var(--color-white);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  
+  .author-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 auto 1rem;
+  }
+  
+  .contact-box {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  
+  .contact-box h3 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar-phone {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 1rem 0;
+  }
+
+  .full-width {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+  }
+</style>

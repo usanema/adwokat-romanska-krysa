@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Specjalizacje | Adwokat Anna Romańska-Krysa">
+  <Header />
+  
+  <main>
+    <section class="page-header text-center">
+      <div class="container">
+        <h1>W czym mogę Ci pomóc?</h1>
+        <p class="lead">Kompleksowa pomoc prawna dla osób prywatnych i firm.</p>
+      </div>
+    </section>
+
+    <section class="specs-full">
+      <div class="container">
+        <div class="specs-grid">
+           <!-- Card 1 -->
+           <div class="spec-card-large" id="medyczne">
+             <div class="card-icon">⚕️</div>
+             <h3>Prawo Medyczne</h3>
+             <ul class="spec-list">
+               <li>Błędy medyczne (diagnostyczne, operacyjne)</li>
+               <li>Odszkodowania dla pacjentów</li>
+               <li>Obrona lekarzy i personelu medycznego</li>
+               <li>Obsługa prawna podmiotów leczniczych</li>
+             </ul>
+           </div>
+           
+           <!-- Card 2 -->
+           <div class="spec-card-large" id="rodzinne">
+             <div class="card-icon">👨‍👩‍👧</div>
+             <h3>Rozwody i Rodzina</h3>
+             <ul class="spec-list">
+               <li>Rozwody i separacje</li>
+               <li>Podział majątku</li>
+               <li>Alimenty i kontakty z dziećmi</li>
+               <li>Władza rodzicielska</li>
+             </ul>
+           </div>
+
+           <!-- Card 3 -->
+           <div class="spec-card-large" id="karne">
+             <div class="card-icon">⚖️</div>
+             <h3>Prawo Karne</h3>
+             <ul class="spec-list">
+               <li>Obrona w postępowaniu przygotowawczym</li>
+               <li>Reprezentacja przed sądem</li>
+               <li>Dozór elektroniczny</li>
+               <li>Warunkowe przedterminowe zwolnienie</li>
+             </ul>
+           </div>
+
+           <!-- Card 4 -->
+           <div class="spec-card-large" id="firmy">
+             <div class="card-icon">🏢</div>
+             <h3>Obsługa Firm</h3>
+             <ul class="spec-list">
+               <li>Stała obsługa prawna</li>
+               <li>Umowy i kontrakty</li>
+               <li>Windykacja należności</li>
+               <li>Spory pracownicze</li>
+             </ul>
+           </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--spacing-xxl) 0 var(--spacing-xl);
+    background-color: var(--color-bg);
+  }
+  .specs-full {
+    padding-bottom: var(--spacing-xxl);
+  }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  .spec-card-large {
+    background: var(--color-white);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 2px;
+  }
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+  .spec-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-md);
+  }
+  .spec-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .spec-list li::before {
+    content: "•";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  @media(max-width: 768px) {
+    .specs-grid { grid-template-columns: 1fr; }
+  }
+</style>
