@@ -33,11 +33,10 @@ const Header = ({ activeTab }) => {
                             <a
                                 key={item.id}
                                 href={item.path}
-                                className={`group relative text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${activeTab === item.id ? 'text-ochre' : 'text-text hover:text-ochre'
-                                    }`}
+                                className={`group relative px-2 py-1 text-xs font-bold uppercase tracking-[0.15em] text-text transition-colors duration-300 ${activeTab === item.id ? 'text-primary' : ''}`}
                             >
-                                {item.label}
-                                <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-ochre transform origin-left transition-transform duration-300 ${activeTab === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                                <span className="relative z-10">{item.label}</span>
+                                <div className={`absolute -inset-x-3 -inset-y-2 border border-primary rounded-md pointer-events-none transition-all duration-300 ease-out ${activeTab === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100'}`}></div>
                             </a>
                         ))}
                     </nav>
