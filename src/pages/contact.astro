@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+---
+
+<Layout title="Kontakt | Adwokat Anna Romańska-Krysa" activeTab="contact">
+    <div class="pt-24 pb-20 bg-cream animate-fade-in">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12">
+                {/* Contact Info */}
+                <div class="w-full md:w-1/3 space-y-8">
+                    <h1 class="text-4xl font-serif text-green mb-6">Kontakt</h1>
+                    <p class="text-text/80 font-sans mb-8">
+                        Preferuję kontakt mailowy jako pierwszy krok. Opisz
+                        krótko swoją sprawę, a oddzwonię w ciągu 24 godzin.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-green text-beige">
+                                <Mail className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h4
+                                    class="font-bold text-green text-sm uppercase"
+                                >
+                                    E-mail
+                                </h4>
+                                <a
+                                    href="mailto:kontakt@adwokat-romanska.pl"
+                                    class="text-lg font-serif hover:text-beige transition"
+                                >
+                                    kontakt@adwokat-romanska.pl
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-green text-beige">
+                                <Phone className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h4
+                                    class="font-bold text-green text-sm uppercase"
+                                >
+                                    Telefon
+                                </h4>
+                                <a
+                                    href="tel:+48123456789"
+                                    class="text-lg font-serif hover:text-beige transition"
+                                >
+                                    +48 123 456 789
+                                </a>
+                                <p class="text-xs text-gray-500">
+                                    pn-pt: 9:00 - 17:00
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-green text-beige">
+                                <MapPin className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h4
+                                    class="font-bold text-green text-sm uppercase"
+                                >
+                                    Kancelaria
+                                </h4>
+                                <p class="font-serif">
+                                    ul. Mariacka XX/Y<br />40-000 Katowice
+                                </p>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    Blisko Sądu Okręgowego
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-beige/20 mt-8 border-l-4 border-green">
+                        <h4
+                            class="font-bold text-green mb-2 flex items-center gap-2"
+                        >
+                            <Clock className="w-4 h-4" /> Rezerwacja terminu
+                        </h4>
+                        <p class="text-sm font-sans">
+                            Możliwość umówienia spotkania online lub w
+                            kancelarii po wcześniejszym kontakcie mailowym.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Map / Visual */}
+                <div
+                    class="w-full md:w-2/3 h-[500px] bg-[#e5e5e5] relative border border-green/10"
+                >
+                    {/* Placeholder for Google Map */}
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-gray-200"
+                    >
+                        <div class="text-center opacity-50">
+                            <MapPin
+                                className="w-16 h-16 mx-auto mb-2 text-green"
+                            />
+                            <span class="font-serif text-xl text-green"
+                                >Mapa Google - Lokalizacja Katowice</span
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-6 right-6 bg-white p-6 shadow-xl max-w-sm"
+                    >
+                        <h4 class="font-serif text-green text-lg mb-2">
+                            Dojazd
+                        </h4>
+                        <p class="text-sm text-gray-600 font-sans">
+                            Kancelaria znajduje się w centrum Katowic. Dostępne
+                            parkingi miejskie wzdłuż ulicy. 5 minut pieszo od
+                            Dworca PKP.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

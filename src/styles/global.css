@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green: #0B3D2E;
+  --color-beige: #DBC1AC;
+  --color-cream: #FAFAF5;
+  --color-text: #0F1F15;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Open Sans", sans-serif;
+  
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+.clip-diagonal {
+  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+}

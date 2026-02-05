@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader";
+import { posts } from "../data";
+import { ArrowRight } from "lucide-react";
+---
+
+<Layout title="Blog | Adwokat Anna Romańska-Krysa" activeTab="blog">
+    <div class="pt-24 pb-20 bg-cream animate-fade-in">
+        <div class="container mx-auto px-6">
+            <SectionHeader
+                title="Wiedza i Publikacje"
+                subtitle="Artykuły, które tłumaczą prawo na zrozumiały język. Bez żargonu, konkretnie."
+            />
+
+            {/* Filters (Mock) - keeping static for now */}
+            <div
+                class="flex flex-wrap justify-center gap-4 mb-12 font-sans text-sm"
+            >
+                <button class="px-4 py-2 bg-green text-beige">Wszystkie</button>
+                <button
+                    class="px-4 py-2 border border-green text-green hover:bg-green hover:text-white transition"
+                    >Medyczne</button
+                >
+                <button
+                    class="px-4 py-2 border border-green text-green hover:bg-green hover:text-white transition"
+                    >Rodzinne</button
+                >
+                <button
+                    class="px-4 py-2 border border-green text-green hover:bg-green hover:text-white transition"
+                    >Karne</button
+                >
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {
+                    posts.map((post) => (
+                        <div class="bg-white shadow-md hover:shadow-xl transition duration-300 flex flex-col h-full group">
+                            <div class="h-48 bg-gray-200 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-green/20 group-hover:bg-transparent transition" />
+                                <img
+                                    src={`https://images.unsplash.com/photo-${
+                                        post.id === 1
+                                            ? "1576091160399-112ba8d25d1d"
+                                            : post.id === 2
+                                            ? "1633613286991-611fe299c4be"
+                                            : "1589829545856-d10d557cf95f"
+                                    }?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80`}
+                                    alt="Blog post"
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <div class="flex justify-between items-center text-xs text-text/50 mb-3 font-sans uppercase tracking-wider">
+                                    <span>{post.category}</span>
+                                    <span>{post.date}</span>
+                                </div>
+                                <h3 class="text-xl font-serif text-green mb-3 group-hover:text-beige transition">
+                                    {post.title}
+                                </h3>
+                                <p class="text-sm text-text/70 font-sans mb-6 flex-grow">
+                                    {post.excerpt}
+                                </p>
+                                <a
+                                    href="#"
+                                    class="text-green font-bold text-xs uppercase flex items-center gap-2"
+                                >
+                                    Czytaj dalej{" "}
+                                    <ArrowRight className="w-3 h-3" />
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Layout>
