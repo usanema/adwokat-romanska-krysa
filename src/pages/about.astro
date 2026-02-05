@@ -9,10 +9,12 @@ import Layout from "../layouts/Layout.astro";
             <div className="md:col-span-5">
                 <span
                     class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4"
-                    >Profil</span
+                    data-animate="fade">Profil</span
                 >
                 <h1
                     class="font-display text-[12vw] md:text-[5vw] leading-[0.9] text-text uppercase mb-12"
+                    data-animate="split"
+                    data-split-type="chars"
                 >
                     Anna <br />
                     <span class="block ml-12 italic text-ochre">Romańska</span>
@@ -20,6 +22,7 @@ import Layout from "../layouts/Layout.astro";
 
                 <div
                     className="relative w-full aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700"
+                    data-animate="fade"
                 >
                     <img
                         src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -34,6 +37,7 @@ import Layout from "../layouts/Layout.astro";
             <div className="md:col-span-6 flex flex-col justify-center">
                 <div
                     class="space-y-8 text-lg font-sans leading-relaxed text-text/80 pt-12 md:pt-32"
+                    data-animate="fade"
                 >
                     <p>
                         Jestem adwokatem i mediatorem sądowym. Moja praktyka
@@ -59,6 +63,7 @@ import Layout from "../layouts/Layout.astro";
 
                 <div
                     class="mt-16 grid grid-cols-2 gap-8 border-t border-text/10 pt-8"
+                    data-animate="fade"
                 >
                     <div>
                         <span

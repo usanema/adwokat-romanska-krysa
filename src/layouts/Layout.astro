@@ -38,5 +38,122 @@ const { title, activeTab } = Astro.props;
             <slot />
         </main>
         <Footer />
+
+        <script>
+            import Lenis from "lenis";
+            import SplitType from "split-type";
+            import { gsap } from "gsap";
+
+            // 1. Initialize Lenis (Smooth Scroll)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: "vertical",
+                gestureOrientation: "vertical",
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            // 2. Initialize Text Animations
+            const initTextAnimations = () => {
+                // Selector for split text
+                const splitTargets = document.querySelectorAll(
+                    '[data-animate="split"]'
+                );
+
+                splitTargets.forEach((target) => {
+                    // Split text into words/chars
+                    const type =
+                        target.getAttribute("data-split-type") || "words"; // 'words' or 'chars' or 'lines'
+
+                    const split = new SplitType(target as HTMLElement, {
+                        types: "lines, words, chars",
+                        tagName: "span",
+                    });
+
+                    // Wrap lines in overflow hidden containers
+                    // (SplitType creates .line elements automatically if configured, or we can use existing structure)
+                    // For simply staggering words:
+
+                    // Create Observer
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    target.classList.add("in-view");
+
+                                    // GSAP Animation for more control
+                                    if (type === "chars") {
+                                        gsap.fromTo(
+                                            split.chars,
+                                            { y: "100%", opacity: 0 },
+                                            {
+                                                y: "0%",
+                                                opacity: 1,
+                                                duration: 0.8,
+                                                ease: "power3.out",
+                                                stagger: 0.02,
+                                            }
+                                        );
+                                    } else {
+                                        gsap.fromTo(
+                                            split.words,
+                                            { y: "100%", opacity: 0 },
+                                            {
+                                                y: "0%",
+                                                opacity: 1,
+                                                duration: 1,
+                                                ease: "power3.out",
+                                                stagger: 0.05,
+                                            }
+                                        );
+                                    }
+
+                                    observer.unobserve(target); // Animate once
+                                }
+                            });
+                        },
+                        { threshold: 0.1 }
+                    );
+
+                    observer.observe(target);
+                });
+
+                // Simple Fade Up Targets
+                const fadeTargets = document.querySelectorAll(
+                    '[data-animate="fade"]'
+                );
+                const fadeObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("in-view");
+                                fadeObserver.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.1 }
+                );
+
+                fadeTargets.forEach((el) => {
+                    el.classList.add("reveal-fade");
+                    fadeObserver.observe(el);
+                });
+            };
+
+            // Run on load
+            initTextAnimations();
+
+            // Handle View Transitions (if enabled later, good practice to keep)
+            document.addEventListener("astro:page-load", () => {
+                // Re-init if using View Transitions
+            });
+        </script>
     </body>
 </html>

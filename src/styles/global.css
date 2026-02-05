@@ -34,14 +34,34 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Base styles */
 body {
   background-color: var(--color-cream);
   color: var(--color-text);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom Scrollbar for premium feel */
@@ -61,3 +81,46 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #7a6540;
 }
+
+/* TEXT ANIMATIONS */
+
+/* 1. Standard Fade Up */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Split Text (Char/Word) defaults */
+.word,
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.char {
+  transform: translateY(40%);
+}
+
+.split-line {
+  overflow: hidden;
+  padding-bottom: 0.2em;
+  /* Prevent descender clipping */
+  margin-bottom: -0.2em;
+}
+
+/* When .in-view is added to the parent container */
+.animate-text.in-view .word,
+.animate-text.in-view .char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays are handled via JS or we can set basic CSS generic delays */
