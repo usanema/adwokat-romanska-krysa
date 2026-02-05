@@ -3,51 +3,105 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="O Mnie | Adwokat Anna Romańska-Krysa" activeTab="about">
-    <div class="px-6 md:px-12 pt-12 md:pt-24 pb-20 animate-fade-in">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-            {/* Left: Heading + Image */}
-            <div class="md:col-span-5">
-                <span
-                    class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4 animate-on-scroll"
-                    >Profil</span
-                >
-                <h1
-                    class="font-display text-[12vw] md:text-[4vw] leading-[0.9] text-text uppercase mb-12 animate-on-scroll delay-100"
-                >
-                    Anna <br />
-                    <span class="block ml-12 italic text-ochre"
-                        >Romańska-Krysa</span
+    <div
+        class="px-6 md:px-12 pt-12 md:pt-24 pb-20 animate-fade-in bg-cream min-h-screen"
+    >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
+            {/* Left Column: Heading, Image, and first block of text */}
+            <div
+                class="lg:col-span-5 flex flex-col h-full sticky top-0 lg:static"
+            >
+                <div class="mb-12">
+                    <span
+                        class="block text-primary font-sans text-xs uppercase tracking-[0.3em] mb-6 animate-on-scroll"
+                        >O Mnie</span
                     >
-                </h1>
+                    <h1
+                        class="font-display text-[12vw] lg:text-[4.5vw] leading-[0.9] text-text uppercase animate-on-scroll delay-100"
+                    >
+                        Anna <br />
+                        <span class="block ml-16 italic text-primary"
+                            >Romańska</span
+                        >
+                        <span
+                            class="block text-right lg:text-left lg:ml-32 mt-2"
+                            >-Krysa</span
+                        >
+                    </h1>
+                </div>
 
+                {/* Main Image - Local asset */}
                 <div
-                    className="relative w-full aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 animate-on-scroll delay-200"
+                    class="w-full aspect-[4/5] overflow-hidden relative mb-16 animate-on-scroll delay-200 shadow-2xl shadow-gray-200/50"
                 >
                     <img
-                        src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                        alt="Anna Romańska-Krysa"
-                        class="object-cover w-full h-full"
+                        src="/about.jpeg"
+                        alt="Adwokat Anna Romańska-Krysa"
+                        class="object-cover object-top w-full h-full grayscale hover:grayscale-0 transition-grayscale duration-1000 ease-in-out"
                     />
                 </div>
-            </div>
 
-            {/* Right: Content */}
-            <div class="md:col-span-1"></div>
-            <div class="md:col-span-6 flex flex-col justify-center">
+                {/* Text Block 1 - Education & Intro */}
                 <div
-                    class="space-y-8 text-lg font-sans leading-relaxed text-text/80 pt-12 md:pt-32 animate-on-scroll"
+                    class="font-sans text-lg text-text/80 leading-relaxed space-y-8 animate-on-scroll delay-300"
                 >
                     <p>
                         <strong>Adwokat Anna Romańska-Krysa</strong> – absolwentka
                         Wydziału Prawa i Administracji Uniwersytetu Śląskiego w Katowicach
-                        oraz studiów podyplomowych „Prawo w ochronie zdrowia”. Swoją
-                        wiedzę wzbogacała na licznych szkoleniach z zakresu negocjacji
-                        i mediacji. Od 2022 roku wpisana na listę stałych mediatorów
-                        sądowych Prezesa Sądu Okręgowego w Katowicach i Warszawie,
-                        a w 2025 roku na listę adwokatów Okręgowej Rady Adwokackiej
-                        w Katowicach.
+                        oraz studiów podyplomowych „Prawo w ochronie zdrowia”.
                     </p>
-                    <div class="w-24 h-[1px] bg-text/20 my-8"></div>
+                    <p>
+                        Swoją wiedzę wzbogacała na licznych szkoleniach z
+                        zakresu negocjacji i mediacji. Od 2022 roku wpisana na
+                        listę stałych mediatorów sądowych Prezesa Sądu
+                        Okręgowego w Katowicach i Warszawie, a w 2025 roku na
+                        listę adwokatów Okręgowej Rady Adwokackiej w Katowicach.
+                    </p>
+                </div>
+            </div>
+
+            {
+                /* Right Column: Key Stats and Second block of text, pushed down for asymmetry */
+            }
+            <div class="lg:col-span-1 hidden lg:block"></div>
+            {/* Spacer */}
+
+            <div
+                class="lg:col-span-6 flex flex-col justify-center pt-0 lg:pt-32"
+            >
+                {/* Stats Row */}
+                <div
+                    class="grid grid-cols-2 gap-12 border-b border-text/10 pb-12 mb-16 animate-on-scroll"
+                >
+                    <div>
+                        <span
+                            class="block text-5xl font-display text-primary mb-2"
+                            >2015</span
+                        >
+                        <span
+                            class="text-xs uppercase tracking-widest text-text/50"
+                            >Początek praktyki</span
+                        >
+                    </div>
+                    <div>
+                        <span
+                            class="block text-5xl font-display text-primary mb-2"
+                            >Med</span
+                        >
+                        <span
+                            class="text-xs uppercase tracking-widest text-text/50"
+                            >Specjalizacja Medyczna</span
+                        >
+                    </div>
+                </div>
+
+                {/* Text Block 2 - Specialization & Approach */}
+                <div
+                    class="font-sans text-lg text-text/80 leading-relaxed space-y-8 animate-on-scroll delay-100"
+                >
+                    <h3 class="font-display text-2xl text-text mb-6">
+                        Specjalizacja i Wartości
+                    </h3>
                     <p>
                         Specjalizuję się w <strong>prawie medycznym</strong>,
                         pomagając zarówno poszkodowanym pacjentom, jak i
@@ -61,37 +115,33 @@ import Layout from "../layouts/Layout.astro";
                         na dochodzenie roszczeń odszkodowawczych, windykację
                         oraz prawo rodzinne.
                     </p>
-                    <p>
-                        Do każdej sprawy podchodzę z zaangażowaniem i
+                    <div
+                        class="pl-6 border-l w-full border-primary/30 italic text-text/70 my-8"
+                    >
+                        "Do każdej sprawy podchodzę z zaangażowaniem i
                         determinacją. Indywidualna strategia dla każdego Klienta
-                        to mój priorytet. Biegle posługuję się językiem
-                        angielskim.
+                        to mój priorytet."
+                    </div>
+                    <p>
+                        Biegle posługuję się językiem angielskim, co pozwala mi
+                        na obsługę Klientów zagranicznych oraz analizę
+                        dokumentacji międzynarodowej.
                     </p>
                 </div>
 
+                {/* Signature / Contact CTA */}
                 <div
-                    class="mt-16 grid grid-cols-2 gap-8 border-t border-text/10 pt-8 animate-on-scroll"
+                    class="mt-24 pt-12 border-t border-text/10 animate-on-scroll delay-200"
                 >
-                    <div>
+                    <a
+                        href="/contact"
+                        class="group inline-flex items-center gap-4 text-xl font-display uppercase tracking-widest text-text hover:text-primary transition-colors"
+                    >
+                        Umów Spotkanie
                         <span
-                            class="block text-4xl font-display text-ochre mb-2"
-                            >2015</span
-                        >
-                        <span
-                            class="text-xs uppercase tracking-widest text-text/60"
-                            >Początek praktyki</span
-                        >
-                    </div>
-                    <div>
-                        <span
-                            class="block text-4xl font-display text-ochre mb-2"
-                            >500+</span
-                        >
-                        <span
-                            class="text-xs uppercase tracking-widest text-text/60"
-                            >Przeprowadzonych spraw</span
-                        >
-                    </div>
+                            class="w-12 h-[1px] bg-text group-hover:bg-primary transition-colors"
+                        ></span>
+                    </a>
                 </div>
             </div>
         </div>
