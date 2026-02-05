@@ -4,63 +4,63 @@ import { ArrowUpRight } from "lucide-react";
 ---
 
 <Layout title="Adwokat Anna Romańska-Krysa | Katowice" activeTab="home">
-	{/* HERO SECTION */}
+	{/* HERO SECTION - 2 Column Layout */}
 	<section
-		class="min-h-[85vh] flex flex-col justify-between px-6 md:px-12 py-12 md:py-20 relative z-10"
+		class="min-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 md:px-12 py-12 md:py-20 relative z-10 items-center"
 	>
-		<div class="mt-12 md:mt-24">
-			{/* Replaced split header with simple blocks + stagger delays */}
-			<h1
-				class="font-display text-[11vw] md:text-[8vw] leading-[0.9] text-text uppercase break-words"
-			>
-				<span class="block animate-on-scroll">Spokój</span>
-				<span
-					class="block pl-[15vw] md:pl-[20vw] italic text-ochre animate-on-scroll delay-100"
-					>w Obliczu</span
-				>
-				<span
-					class="block text-right md:text-left md:pl-[40vw] animate-on-scroll delay-200"
-					>Prawa</span
-				>
-			</h1>
-		</div>
-
+		{/* Left Column: Typography & Content */}
 		<div
-			class="flex flex-col md:flex-row justify-between items-end gap-8 mt-12 animate-on-scroll delay-300"
+			class="flex flex-col justify-center h-full order-2 lg:order-1 mt-12 lg:mt-0"
 		>
-			<div class="max-w-md">
+			<div class="mb-12">
+				<h1
+					class="font-display text-[11vw] lg:text-[6vw] leading-[0.9] text-text uppercase break-words"
+				>
+					<span class="block animate-on-scroll">Spokój</span>
+					<span
+						class="block pl-[10vw] italic text-ochre animate-on-scroll delay-100"
+						>w Obliczu</span
+					>
+					<span
+						class="block text-right pr-[10vw] animate-on-scroll delay-200"
+						>Prawa</span
+					>
+				</h1>
+			</div>
+
+			<div class="max-w-md ml-0 lg:ml-[5vw] animate-on-scroll delay-300">
 				<p
-					class="font-sans text-sm md:text-base leading-relaxed text-text/80"
+					class="font-sans text-sm md:text-base leading-relaxed text-text/80 mb-8"
 				>
 					Specjalistyczna pomoc prawna w zakresie prawa medycznego i
 					ochrony zdrowia. Doświadczenie medyczne połączone z
 					skuteczną strategią procesową.
 				</p>
+				<a
+					href="/services"
+					class="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] border-b border-text/20 pb-1 hover:border-text transition-all"
+				>
+					Poznaj specjalizacje
+					<ArrowUpRight
+						className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+					/>
+				</a>
 			</div>
-			<a
-				href="/services"
-				class="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] border-b border-text/20 pb-1 hover:border-text transition-all"
-			>
-				Poznaj specjalizacje
-				<ArrowUpRight
-					className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+		</div>
+
+		{/* Right Column: Image */}
+		<div
+			class="h-[60vh] lg:h-[85vh] w-full relative order-1 lg:order-2 animate-on-scroll delay-100"
+		>
+			<div class="absolute inset-0 bg-gray-200 overflow-hidden">
+				<img
+					src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+					alt="Kancelaria Adwokacka"
+					class="w-full h-full object-cover grayscale hover:grayscale-0 transition-grayscale duration-1000 ease-in-out"
 				/>
-			</a>
+			</div>
 		</div>
 	</section>
-
-	{/* IMAGE SEPARATOR */}
-	<div class="px-6 md:px-12 pb-24 animate-on-scroll">
-		<div
-			class="w-full h-[60vh] md:h-[80vh] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out"
-		>
-			<img
-				src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2600&q=80"
-				alt="Office vibe"
-				class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-[2s]"
-			/>
-		</div>
-	</div>
 
 	{/* SERVICES LIST (Minimalist) */}
 	<section class="px-6 md:px-12 py-24 mb-24 border-t border-text/10">
