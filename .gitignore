@@ -26,3 +26,10 @@ pnpm-debug.log*
 
 # AI context
 GEMINI.md
+
+# Additional Tools & Docs
+doc/
+.vscode/
+.gemini/
+.agents/
+.agent/
