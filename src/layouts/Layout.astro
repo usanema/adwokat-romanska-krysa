@@ -31,7 +31,9 @@ const { title, activeTab } = Astro.props;
         />
         <title>{title}</title>
     </head>
-    <body class="font-sans antialiased selection:bg-ochre selection:text-cream">
+    <body
+        class="font-sans antialiased selection:bg-primary selection:text-cream"
+    >
         <Header client:load activeTab={activeTab} />
         <main class="min-h-screen pt-[80px]">
             <!-- pt matching header height -->
