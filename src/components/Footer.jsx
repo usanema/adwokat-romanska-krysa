@@ -1,65 +1,50 @@
 import React from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const Footer = () => (
-    <footer className="bg-text text-cream/60 py-16 font-sans text-sm">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-cream/10 pb-12">
+    <footer className="bg-text text-cream pt-24 pb-12 px-6 md:px-12 border-t border-text">
+        {/* Large CTA Heading */}
+        <div className="mb-24 border-b border-cream/20 pb-24">
+            <h2 className="font-display text-[12vw] leading-[0.85] text-cream uppercase">
+                Rezerwacja <br />
+                <span className="text-ochre italic">Terminu</span>
+            </h2>
+            <div className="mt-12 flex justify-end">
+                <a href="/contact" className="group hidden md:flex items-center gap-4 text-xl font-display uppercase tracking-widest hover:text-ochre transition-colors">
+                    Skontaktuj się ze mną
+                    <div className="w-12 h-12 rounded-full border border-cream/30 flex items-center justify-center group-hover:bg-ochre group-hover:border-ochre group-hover:text-text transition-all">
+                        <ArrowUpRight className="w-5 h-5" />
+                    </div>
+                </a>
+            </div>
+        </div>
 
-            <div className="md:col-span-1">
-                <span className="font-serif text-lg tracking-widest uppercase text-beige block mb-4">Adwokat Romańska-Krysa</span>
-                <p className="leading-relaxed mb-6">
-                    Profesjonalna pomoc prawna w Katowicach. Specjalizacja w prawie medycznym i cywilnym.
-                </p>
-                <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center hover:bg-beige hover:text-green transition cursor-pointer"><span className="font-serif">Fb</span></div>
-                    <div className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center hover:bg-beige hover:text-green transition cursor-pointer"><span className="font-serif">Ig</span></div>
-                    <div className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center hover:bg-beige hover:text-green transition cursor-pointer"><span className="font-serif">In</span></div>
+        {/* Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 font-sans text-sm tracking-wide text-cream/70">
+            <div className="space-y-4">
+                <h4 className="text-cream font-bold uppercase tracking-widest">Kancelaria</h4>
+                <p>Adwokat Anna Romańska-Krysa</p>
+                <p>Katowice, ul. Mariacka XX/Y</p>
+            </div>
+
+            <div className="space-y-4">
+                <h4 className="text-cream font-bold uppercase tracking-widest">Kontakt</h4>
+                <p><a href="mailto:kontakt@adwokat-romanska.pl" className="hover:text-ochre transition">kontakt@adwokat-romanska.pl</a></p>
+                <p><a href="tel:+48123456789" className="hover:text-ochre transition">+48 123 456 789</a></p>
+            </div>
+
+            <div className="space-y-4">
+                <h4 className="text-cream font-bold uppercase tracking-widest">Social</h4>
+                <div className="flex flex-col gap-2">
+                    <a href="#" className="hover:text-ochre transition">Instagram</a>
+                    <a href="#" className="hover:text-ochre transition">Facebook</a>
+                    <a href="#" className="hover:text-ochre transition">LinkedIn</a>
                 </div>
             </div>
 
-            <div>
-                <h4 className="text-cream uppercase tracking-widest mb-6 text-xs font-bold">Menu</h4>
-                <ul className="space-y-3">
-                    <li><a href="/about" className="hover:text-beige transition">O Mnie</a></li>
-                    <li><a href="/services" className="hover:text-beige transition">Specjalizacje</a></li>
-                    <li><a href="/blog" className="hover:text-beige transition">Blog Prawniczy</a></li>
-                    <li><a href="/contact" className="hover:text-beige transition">Kontakt</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 className="text-cream uppercase tracking-widest mb-6 text-xs font-bold">Obszary Prawa</h4>
-                <ul className="space-y-3">
-                    <li><span className="hover:text-beige cursor-default transition">Prawo Medyczne</span></li>
-                    <li><span className="hover:text-beige cursor-default transition">Błędy Lekarskie</span></li>
-                    <li><span className="hover:text-beige cursor-default transition">Rozwody i Rodzina</span></li>
-                    <li><span className="hover:text-beige cursor-default transition">Sprawy Karne</span></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 className="text-cream uppercase tracking-widest mb-6 text-xs font-bold">Kontakt</h4>
-                <ul className="space-y-3">
-                    <li className="flex gap-3 items-start">
-                        <MapPin className="w-4 h-4 mt-1 text-beige" />
-                        <span>ul. Mariacka XX/Y<br />40-000 Katowice</span>
-                    </li>
-                    <li className="flex gap-3 items-center">
-                        <Phone className="w-4 h-4 text-beige" />
-                        <span>+48 123 456 789</span>
-                    </li>
-                    <li className="flex gap-3 items-center">
-                        <Mail className="w-4 h-4 text-beige" />
-                        <span>kontakt@adwokat-romanska.pl</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div className="container mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-50">
-            <p>&copy; 2026 Kancelaria Adwokacka Anna Romańska-Krysa. Wszelkie prawa zastrzeżone.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-                <a href="#" className="hover:text-white">Polityka Prywatności</a>
-                <a href="#" className="hover:text-white">Regulamin</a>
+            <div className="space-y-4 md:text-right flex flex-col justify-end">
+                <p>&copy; {new Date().getFullYear()}</p>
+                <p className="text-xs opacity-50">Designed with precision.</p>
             </div>
         </div>
     </footer>

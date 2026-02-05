@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const Header = ({ activeTab }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const navItems = [
         { id: 'home', label: 'Start', path: '/' },
@@ -22,57 +13,74 @@ const Header = ({ activeTab }) => {
     ];
 
     return (
-        <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-green text-cream py-3 shadow-lg' : 'bg-green text-cream py-5'}`}>
-            <div className="container mx-auto px-6 flex justify-between items-center">
-                {/* Logo */}
-                <a href="/" className="cursor-pointer flex flex-col leading-none hover:opacity-90 transition-opacity">
-                    <span className="font-serif text-xl tracking-widest uppercase text-beige">Adwokat</span>
-                    <span className="font-serif text-2xl font-semibold">Anna Romańska-Krysa</span>
-                </a>
+        <>
+            <header className="fixed w-full top-0 z-50 bg-cream border-b border-text/10 transition-transform duration-300">
+                <div className="flex justify-between items-center h-[80px] px-6 md:px-12">
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex gap-8 items-center text-sm font-medium tracking-wide uppercase">
+                    {/* 1. LOGO LEFT */}
+                    <a href="/" className="flex flex-col leading-none hover:opacity-70 transition-opacity z-50">
+                        <span className="font-display font-medium text-lg uppercase tracking-wider text-text">
+                            Romańska-Krysa
+                        </span>
+                        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-text/60">
+                            Kancelaria Adwokacka
+                        </span>
+                    </a>
+
+                    {/* 2. CENTER NAV (Desktop) */}
+                    <nav className="hidden md:flex gap-12 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        {navItems.map((item) => (
+                            <a
+                                key={item.id}
+                                href={item.path}
+                                className={`group relative text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${activeTab === item.id ? 'text-ochre' : 'text-text hover:text-ochre'
+                                    }`}
+                            >
+                                {item.label}
+                                <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-ochre transform origin-left transition-transform duration-300 ${activeTab === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                            </a>
+                        ))}
+                    </nav>
+
+                    {/* 3. CTA RIGHT (Desktop) */}
+                    <div className="hidden md:flex items-center">
+                        <a
+                            href="/contact"
+                            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-text hover:text-ochre transition-colors"
+                        >
+                            Umów Wizytę
+                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </a>
+                    </div>
+
+                    {/* Mobile Toggle */}
+                    <button className="md:hidden z-50 text-text" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
+            </header>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <div className="fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center gap-8 animate-fade-in">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
                             href={item.path}
-                            className={`relative px-2 py-1 transition-colors hover:text-beige ${activeTab === item.id ? 'text-beige' : 'text-cream'}`}
+                            className="text-2xl font-display font-light text-text hover:text-ochre hover:italic transition-all"
                         >
                             {item.label}
-                            {activeTab === item.id && (
-                                <span className="absolute bottom-0 left-0 w-full h-px bg-beige"></span>
-                            )}
                         </a>
                     ))}
                     <a
                         href="/contact"
-                        className="ml-4 px-5 py-2 border border-beige text-beige hover:bg-beige hover:text-green transition-all duration-300"
+                        className="mt-8 px-8 py-3 bg-text text-cream font-display uppercase tracking-widest text-sm"
                     >
                         Umów Wizytę
                     </a>
-                </nav>
-
-                {/* Mobile Menu Toggle */}
-                <button className="md:hidden text-beige" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                    {isMobileMenuOpen ? <X /> : <Menu />}
-                </button>
-            </div>
-
-            {/* Mobile Nav Overlay */}
-            {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-green border-t border-cream/10 p-6 md:hidden shadow-xl flex flex-col gap-4 text-center">
-                    {navItems.map((item) => (
-                        <a
-                            key={item.id}
-                            href={item.path}
-                            className={`py-3 uppercase tracking-widest text-sm ${activeTab === item.id ? 'text-beige' : 'text-white'}`}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
                 </div>
             )}
-        </header>
+        </>
     );
 };
 

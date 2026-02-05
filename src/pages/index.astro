@@ -1,182 +1,181 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/Button";
-import SectionHeader from "../components/SectionHeader";
-import ServiceCard from "../components/ServiceCard";
-import { specializations } from "../data";
-import { ShieldCheck, HeartPulse, Users } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 ---
 
 <Layout title="Adwokat Anna Romańska-Krysa | Katowice" activeTab="home">
-	<div class="animate-fade-in">
-		{/* HERO SECTION */}
-		<section
-			class="relative min-h-[90vh] flex items-center bg-cream overflow-hidden"
+	{/* HERO SECTION */}
+	<section
+		class="min-h-[85vh] flex flex-col justify-between px-6 md:px-12 py-12 md:py-20 animate-fade-in relative z-10"
+	>
+		<div class="mt-12 md:mt-24">
+			<h1
+				class="font-display text-[11vw] md:text-[8vw] leading-[0.9] text-text uppercase break-words"
+			>
+				<span class="block">Spokój</span>
+				<span class="block pl-[15vw] md:pl-[20vw] italic text-ochre"
+					>w Obliczu</span
+				>
+				<span class="block text-right md:text-left md:pl-[40vw]"
+					>Prawa</span
+				>
+			</h1>
+		</div>
+
+		<div
+			class="flex flex-col md:flex-row justify-between items-end gap-8 mt-12"
 		>
-			<div
-				class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-green/5 z-0"
-			>
-			</div>
-			{/* Decorative geometric element */}
-			<div
-				class="absolute top-0 right-0 w-[40%] h-full bg-green hidden md:block clip-diagonal z-0"
-			>
-			</div>
-
-			<div class="container mx-auto px-6 relative z-10">
-				<div class="flex flex-col md:flex-row items-center">
-					<div class="w-full md:w-1/2 pr-0 md:pr-12 pt-20 md:pt-0">
-						<span
-							class="text-green font-bold tracking-widest uppercase text-sm mb-4 block"
-						>
-							Kancelaria Adwokacka Katowice
-						</span>
-						<h1
-							class="text-5xl md:text-7xl font-serif text-text leading-tight mb-6"
-						>
-							Spokój w obliczu <br />
-							<span class="italic text-green"
-								>prawnych wyzwań.</span
-							>
-						</h1>
-						<p
-							class="text-lg text-text/80 mb-8 font-sans leading-relaxed max-w-lg"
-						>
-							Specjalizuję się w prawie medycznym i cywilnym.
-							Zapewniam indywidualne podejście, dyskrecję i
-							strategię dopasowaną do Twojej sytuacji.
-						</p>
-						<div class="flex flex-col sm:flex-row gap-4">
-							<Button href="/contact">Umów Konsultację</Button>
-							<Button variant="outline" href="/services"
-								>Poznaj Specjalizacje</Button
-							>
-						</div>
-					</div>
-
-					<div
-						class="w-full md:w-1/2 mt-12 md:mt-0 relative flex justify-center md:justify-end"
-					>
-						{/* Placeholder for Advocate's Photo */}
-						<div
-							class="relative w-[350px] h-[450px] md:w-[450px] md:h-[600px] border-8 border-beige bg-gray-200 overflow-hidden shadow-2xl"
-						>
-							<img
-								src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-								alt="Mecenas Anna Romańska-Krysa"
-								class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition duration-700"
-							/>
-						</div>
-						<div
-							class="absolute bottom-10 left-0 md:-left-10 bg-cream p-6 shadow-xl max-w-xs border-l-4 border-green"
-						>
-							<p class="font-serif text-xl italic text-green">
-								"Nie jestem korporacją. Jestem Twoim adwokatem."
-							</p>
-							<p
-								class="text-sm font-bold mt-2 text-beige uppercase"
-							>
-								Anna Romańska-Krysa
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		{/* VALUES SECTION */}
-		<section class="py-20 bg-green text-cream">
-			<div class="container mx-auto px-6">
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-					<div
-						class="p-6 border border-beige/20 hover:border-beige transition duration-300"
-					>
-						<ShieldCheck
-							className="w-12 h-12 text-beige mx-auto mb-6"
-						/>
-						<h3 class="text-xl font-serif mb-4">Bezpieczeństwo</h3>
-						<p
-							class="text-cream/70 font-sans text-sm leading-relaxed"
-						>
-							Legalnie działająca kancelaria. Wpis na listę
-							adwokatów ORA Katowice. Pełna poufność i etyka
-							zawodowa.
-						</p>
-					</div>
-					<div
-						class="p-6 border border-beige/20 hover:border-beige transition duration-300"
-					>
-						<HeartPulse
-							className="w-12 h-12 text-beige mx-auto mb-6"
-						/>
-						<h3 class="text-xl font-serif mb-4">
-							Ekspertyza Medyczna
-						</h3>
-						<p
-							class="text-cream/70 font-sans text-sm leading-relaxed"
-						>
-							Unikalne połączenie wiedzy prawniczej z
-							podyplomowymi studiami "Prawo w ochronie zdrowia".
-						</p>
-					</div>
-					<div
-						class="p-6 border border-beige/20 hover:border-beige transition duration-300"
-					>
-						<Users className="w-12 h-12 text-beige mx-auto mb-6" />
-						<h3 class="text-xl font-serif mb-4">
-							Osobiste Zaangażowanie
-						</h3>
-						<p
-							class="text-cream/70 font-sans text-sm leading-relaxed"
-						>
-							Bezpośredni kontakt. Twojej sprawy nie prowadzi
-							anonimowy stażysta, lecz doświadczony adwokat.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		{/* SPECIALIZATIONS PREVIEW */}
-		<section class="py-24 bg-cream">
-			<div class="container mx-auto px-6">
-				<SectionHeader
-					title="Obszary Praktyki"
-					subtitle="Skupiam się na dziedzinach, w których posiadam największe doświadczenie i wiedzę, aby zapewnić najwyższą jakość usług."
-				/>
-
-				<div
-					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-				>
-					{
-						specializations.map((spec) => (
-							<ServiceCard
-								icon={spec.icon}
-								title={spec.title}
-								desc={spec.desc}
-								href="/services"
-							/>
-						))
-					}
-				</div>
-			</div>
-		</section>
-
-		{/* CTA SECTION */}
-		<section class="py-20 bg-beige/20 relative overflow-hidden">
-			<div class="container mx-auto px-6 relative z-10 text-center">
-				<h2 class="text-3xl md:text-5xl font-serif text-green mb-6">
-					Masz problem prawny?
-				</h2>
+			<div class="max-w-md">
 				<p
-					class="text-lg text-text/80 mb-8 max-w-2xl mx-auto font-sans"
+					class="font-sans text-sm md:text-base leading-relaxed text-text/80"
 				>
-					Wstępna analiza sprawy pozwoli ocenić Twoje szanse i dobrać
-					odpowiednią strategię działania. Nie obiecuję rzeczy
-					niemożliwych – gwarantuję rzetelność.
+					Specjalistyczna pomoc prawna w zakresie prawa medycznego i
+					ochrony zdrowia. Doświadczenie medyczne połączone z
+					skuteczną strategią procesową.
 				</p>
-				<Button href="/contact">Skontaktuj się ze mną</Button>
 			</div>
-		</section>
+			<a
+				href="/services"
+				class="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] border-b border-text/20 pb-1 hover:border-text transition-all"
+			>
+				Poznaj specjalizacje
+				<ArrowUpRight
+					className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+				/>
+			</a>
+		</div>
+	</section>
+
+	{/* IMAGE SEPARATOR */}
+	<div class="px-6 md:px-12 pb-24">
+		<div
+			class="w-full h-[60vh] md:h-[80vh] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out"
+		>
+			<img
+				src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2600&q=80"
+				alt="Office vibe"
+				class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-[2s]"
+			/>
+		</div>
 	</div>
+
+	{/* SERVICES LIST (Minimalist) */}
+	<section class="px-6 md:px-12 py-24 mb-24 border-t border-text/10">
+		<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+			<div class="md:col-span-4">
+				<h2 class="font-display text-4xl mb-6 sticky top-32">
+					Obszary <br />
+					<span class="text-ochre italic">Praktyki</span>
+				</h2>
+			</div>
+			<div class="md:col-span-8 space-y-12">
+				{/* Item 1 */}
+				<div
+					class="group border-b border-text/10 pb-12 hover:border-text/50 transition-colors"
+				>
+					<div class="flex justify-between items-start mb-4">
+						<h3 class="text-3xl font-display font-light">
+							Prawo Medyczne
+						</h3>
+						<span
+							class="text-xs font-mono border border-text/20 rounded-full px-2 py-1"
+							>01</span
+						>
+					</div>
+					<p
+						class="max-w-lg text-text/70 font-sans leading-relaxed mb-6"
+					>
+						Błędy medyczne, analiza dokumentacji, dochodzenie
+						odszkodowań dla pacjentów oraz ochrona prawna lekarzy.
+					</p>
+					<a
+						href="/services"
+						class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2"
+					>
+						Zobacz Więcej <ArrowUpRight className="w-3 h-3" />
+					</a>
+				</div>
+
+				{/* Item 2 */}
+				<div
+					class="group border-b border-text/10 pb-12 hover:border-text/50 transition-colors"
+				>
+					<div class="flex justify-between items-start mb-4">
+						<h3 class="text-3xl font-display font-light">
+							Prawo Rodzinne
+						</h3>
+						<span
+							class="text-xs font-mono border border-text/20 rounded-full px-2 py-1"
+							>02</span
+						>
+					</div>
+					<p
+						class="max-w-lg text-text/70 font-sans leading-relaxed mb-6"
+					>
+						Rozwody, podziały majątku, alimenty. Empatyczne
+						prowadzenie spraw dotykających sfery prywatnej.
+					</p>
+					<a
+						href="/services"
+						class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2"
+					>
+						Zobacz Więcej <ArrowUpRight className="w-3 h-3" />
+					</a>
+				</div>
+
+				{/* Item 3 */}
+				<div
+					class="group border-b border-text/10 pb-12 hover:border-text/50 transition-colors"
+				>
+					<div class="flex justify-between items-start mb-4">
+						<h3 class="text-3xl font-display font-light">
+							Sprawy Cywilne
+						</h3>
+						<span
+							class="text-xs font-mono border border-text/20 rounded-full px-2 py-1"
+							>03</span
+						>
+					</div>
+					<p
+						class="max-w-lg text-text/70 font-sans leading-relaxed mb-6"
+					>
+						Odszkodowania, spadki, umowy. Kompleksowe doradztwo w
+						sporach majątkowych.
+					</p>
+					<a
+						href="/services"
+						class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2"
+					>
+						Zobacz Więcej <ArrowUpRight className="w-3 h-3" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* VALUES / ABOUT SHORT */}
+	<section
+		class="bg-ochre text-cream px-6 md:px-12 py-32 relative overflow-hidden"
+	>
+		<div class="max-w-4xl mx-auto text-center relative z-10">
+			<p
+				class="font-sans text-sm uppercase tracking-[0.3em] mb-8 opacity-70"
+			>
+				Filozofia
+			</p>
+			<h2
+				class="font-display text-4xl md:text-6xl font-light leading-tight mb-12"
+			>
+				"Nie traktuję prawa jako zbioru przepisów, ale jako narzędzie do
+				przywracania <span class="italic font-normal">równowagi</span> w
+				życiu moich Klientów."
+			</h2>
+			<a
+				href="/about"
+				class="inline-block border border-cream/30 text-cream px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-cream hover:text-ochre transition-all"
+			>
+				O Mnie
+			</a>
+		</div>
+	</section>
 </Layout>
