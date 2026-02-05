@@ -4,25 +4,22 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="O Mnie | Adwokat Anna Romańska-Krysa" activeTab="about">
     <div class="px-6 md:px-12 pt-12 md:pt-24 pb-20 animate-fade-in">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
             {/* Left: Heading + Image */}
-            <div className="md:col-span-5">
+            <div class="md:col-span-5">
                 <span
-                    class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4"
-                    data-animate="fade">Profil</span
+                    class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4 animate-on-scroll"
+                    >Profil</span
                 >
                 <h1
-                    class="font-display text-[12vw] md:text-[5vw] leading-[0.9] text-text uppercase mb-12"
-                    data-animate="split"
-                    data-split-type="chars"
+                    class="font-display text-[12vw] md:text-[5vw] leading-[0.9] text-text uppercase mb-12 animate-on-scroll delay-100"
                 >
                     Anna <br />
                     <span class="block ml-12 italic text-ochre">Romańska</span>
                 </h1>
 
                 <div
-                    className="relative w-full aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700"
-                    data-animate="fade"
+                    className="relative w-full aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 animate-on-scroll delay-200"
                 >
                     <img
                         src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -33,11 +30,10 @@ import Layout from "../layouts/Layout.astro";
             </div>
 
             {/* Right: Content */}
-            <div className="md:col-span-1"></div>
-            <div className="md:col-span-6 flex flex-col justify-center">
+            <div class="md:col-span-1"></div>
+            <div class="md:col-span-6 flex flex-col justify-center">
                 <div
-                    class="space-y-8 text-lg font-sans leading-relaxed text-text/80 pt-12 md:pt-32"
-                    data-animate="fade"
+                    class="space-y-8 text-lg font-sans leading-relaxed text-text/80 pt-12 md:pt-32 animate-on-scroll"
                 >
                     <p>
                         Jestem adwokatem i mediatorem sądowym. Moja praktyka
@@ -62,8 +58,7 @@ import Layout from "../layouts/Layout.astro";
                 </div>
 
                 <div
-                    class="mt-16 grid grid-cols-2 gap-8 border-t border-text/10 pt-8"
-                    data-animate="fade"
+                    class="mt-16 grid grid-cols-2 gap-8 border-t border-text/10 pt-8 animate-on-scroll"
                 >
                     <div>
                         <span

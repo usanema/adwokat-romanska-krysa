@@ -10,26 +10,25 @@ import { ArrowUpRight } from "lucide-react";
     >
         <div className="max-w-4xl mb-24">
             <span
-                class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4"
-                data-animate="fade">Journal</span
+                class="block text-ochre font-sans text-xs uppercase tracking-[0.3em] mb-4 animate-on-scroll"
+                >Journal</span
             >
             <h1
-                class="font-display text-[10vw] md:text-[6vw] leading-[0.9] text-text uppercase"
-                data-animate="split"
-                data-split-type="chars"
+                class="font-display text-[10vw] md:text-[6vw] leading-[0.9] text-text uppercase animate-on-scroll delay-100"
             >
                 Wiedza jest <br />
                 <span class="italic text-ochre">Kluczem</span>
             </h1>
         </div>
 
-        <div
-            class="grid grid-cols-1 gap-0 border-t border-text/20"
-            data-animate="fade"
-        >
+        <div class="grid grid-cols-1 gap-0 border-t border-text/20">
             {
-                posts.map((post) => (
-                    <article class="group relative py-12 border-b border-text/20 transition-colors hover:bg-white/50">
+                posts.map((post, index) => (
+                    <article
+                        class={`group relative py-12 border-b border-text/20 transition-colors hover:bg-white/50 animate-on-scroll delay-${
+                            (index * 100) % 300
+                        }`}
+                    >
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                             <div class="md:col-span-2">
                                 <span class="text-xs font-mono opacity-50 block mb-2">

@@ -7,31 +7,6 @@
 
   --font-display: "DM Sans", sans-serif;
   --font-sans: "Inter", sans-serif;
-
-  --animate-fade-in: fadeIn 0.8s ease-out forwards;
-  --animate-slide-up: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(40px);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 }
 
 html.lenis,
@@ -82,39 +57,31 @@ body {
   background: #7a6540;
 }
 
-/* TEXT ANIMATIONS */
+/* --- SIMPLE CSS ANIMATIONS --- */
 
-/* 1. Standard Fade Up */
-.reveal-fade {
+.animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
+  padding-top: 1px;
+  /* Antialiasing fix */
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
-  /* Transitions handled by GSAP or class add */
-  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.reveal-fade.in-view {
+.animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 2. Split Text - Base classes */
-/* WE DO NOT set opacity 0 here by default to prevent FOUC / broken JS state. 
-   We let JS handle the initial hidden state. */
-.word,
-.char {
-  display: inline-block;
-  will-change: transform, opacity;
+/* Stagger delays (optional helper classes) */
+.delay-100 {
+  transition-delay: 100ms;
 }
 
-/* Only hide if JS has initialized and added this class */
-.is-splitting .char,
-.is-splitting .word {
-  opacity: 0;
-  /* Fallback if GSAP takes a ms to start */
+.delay-200 {
+  transition-delay: 200ms;
 }
 
-/* Fix for spaces in split text */
-.word {
-  white-space: nowrap;
+.delay-300 {
+  transition-delay: 300ms;
 }
