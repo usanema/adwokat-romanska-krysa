@@ -1,62 +1,86 @@
-import {
-    HeartPulse,
-    Users,
-    Scale,
-    Gavel
-} from 'lucide-react';
-import React from 'react';
-
 export const specializations = [
     {
         id: 'med',
         title: 'Prawo Medyczne',
-        icon: <HeartPulse className="w-8 h-8" />,
-        desc: 'Kompleksowa pomoc dla pacjentów (błędy medyczne) oraz podmiotów leczniczych (kontrakty, obsługa prawna).',
-        detailedDesc: [
-            'Reprezentacja w sprawach o błędy medyczne',
-            'Dochodzenie odszkodowań i zadośćuczynień',
-            'Obrona lekarzy i personelu medycznego',
-            'Analiza dokumentacji medycznej',
-            'Audyt prawny podmiotów leczniczych'
+        subtitle: 'Błędy w Sztuce i Ochrona Zdrowia',
+        image: 'https://images.unsplash.com/photo-1516574187841-693083f7e496?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        desc: 'Błąd medyczny to nie tylko problem prawny, ale przede wszystkim ludzki dramat. Pomagam pacjentom uzyskać sprawiedliwe zadośćuczynienie, a lekarzom chronić ich dobre imię.',
+        details: [
+            {
+                title: 'Dla kogo?',
+                content: 'Reprezentuję pacjentów poszkodowanych w wyniku błędów diagnostycznych, operacyjnych i porodowych. Doradzam również lekarzom i podmiotom leczniczym w sprawach o naruszenie praw pacjenta.'
+            },
+            {
+                title: 'Kiedy warto się zgłosić?',
+                content: 'Jeżeli podejrzewasz, że leczenie przebiegło nieprawidłowo, doszło do powikłań, które nie były ryzykiem wpisanym w procedurę, lub odmówiono Ci dostępu do dokumentacji medycznej.'
+            },
+            {
+                title: 'Zakres wsparcia',
+                content: 'Analiza dokumentacji medycznej, postępowanie przed Wojewódzką Komisją ds. Orzekania o Zdarzeniach Medycznych, procesy sądowe o odszkodowanie, zadośćuczynienie i rentę.'
+            }
         ]
     },
     {
         id: 'fam',
         title: 'Prawo Rodzinne',
-        icon: <Users className="w-8 h-8" />,
-        desc: 'Empatyczne prowadzenie spraw rozwodowych, alimentacyjnych i dotyczących władzy rodzicielskiej.',
-        detailedDesc: [
-            'Rozwody i separacje',
-            'Podział majątku wspólnego',
-            'Ustalenie kontaktów z dziećmi',
-            'Alimenty',
-            'Ubezwłasnowolnienia'
+        subtitle: 'Rozwody i Władza Rodzicielska',
+        image: 'https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        desc: 'Sprawy rodzinne wymagają nie tylko wiedzy prawniczej, ale i empatii. Dążę do rozwiązań, które minimalizują konflikt, szczególnie gdy w grę wchodzi dobro dzieci.',
+        details: [
+            {
+                title: 'Rozwód i Separacja',
+                content: 'Prowadzę sprawy o rozwód (z orzekaniem o winie i bez) oraz separację. Pomagam w negocjacjach porozumień rodzicielskich.'
+            },
+            {
+                title: 'Dzieci i Alimenty',
+                content: 'Ustalenie kontaktów z dziećmi, władza rodzicielska, alimenty na dzieci i małżonków. Reprezentacja w sprawach o uprowadzenie rodzicielskie.'
+            },
+            {
+                title: 'Majątek',
+                content: 'Podział majątku wspólnego po ustaniu wspólności majątkowej. Umowy majątkowe małżeńskie (intercyzy).'
+            }
         ]
     },
     {
         id: 'civ',
-        title: 'Prawo Cywilne i Odszkodowania',
-        icon: <Scale className="w-8 h-8" />,
-        desc: 'Dochodzenie roszczeń, windykacja należności, sprawy spadkowe i analiza umów.',
-        detailedDesc: [
-            'Odszkodowania komunikacyjne',
-            'Sprawy o zapłatę',
-            'Naruszenie dóbr osobistych',
-            'Sprawy spadkowe (zachowek, dział spadku)',
-            'Zasiedzenia nieruchomości'
+        title: 'Prawo Cywilne',
+        subtitle: 'Odszkodowania i Spadki',
+        image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        desc: 'Zabezpieczam interesy majątkowe moich Klientów. Od analizy umów po skomplikowane postępowania spadkowe i odszkodowawcze.',
+        details: [
+            {
+                title: 'Odszkodowania',
+                content: 'Dochodzenie roszczeń z tytułu wypadków komunikacyjnych, błędów w sztuce, naruszenia dóbr osobistych.'
+            },
+            {
+                title: 'Spadki',
+                content: 'Stwierdzenie nabycia spadku, dział spadku, zachowek, podważanie testamentów. Doradztwo w planowaniu spadkowym.'
+            },
+            {
+                title: 'Umowy i Nieruchomości',
+                content: 'Analiza i tworzenie umów, sprawy o zapłatę, zasiedzenia, zniesienie współwłasności nieruchomości.'
+            }
         ]
     },
     {
         id: 'pen',
         title: 'Prawo Karne',
-        icon: <Gavel className="w-8 h-8" />,
-        desc: 'Obrona w postępowaniu przygotowawczym i sądowym. Pomoc na każdym etapie sprawy.',
-        detailedDesc: [
-            'Obrona w sprawach karnych i karnoskarbowych',
-            'Reprezentacja pokrzywdzonych (oskarżyciel posiłkowy)',
-            'Wnioski o dozór elektroniczny',
-            'Odroczenie wykonania kary',
-            'Warunkowe przedterminowe zwolnienie'
+        subtitle: 'Obrona i Reprezentacja',
+        image: 'https://images.unsplash.com/photo-1453945619913-79ec89a82c51?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        desc: 'Zapewniam aktywną obronę na każdym etapie postępowania – od przesłuchania na policji po rozprawę sądową i postępowanie wykonawcze.',
+        details: [
+            {
+                title: 'Obrona',
+                content: 'Obrona podejrzanych i oskarżonych w sprawach karnych, karnoskarbowych i wykroczeniowych.'
+            },
+            {
+                title: 'Reprezentacja Pokrzywdzonych',
+                content: 'Występowanie w charakterze oskarżyciela posiłkowego, dochodzenie naprawienia szkody w procesie karnym.'
+            },
+            {
+                title: 'Postępowanie Wykonawcze',
+                content: 'Wnioski o dozór elektroniczny (SDE), odroczenie wykonania kary, warunkowe przedterminowe zwolnienie.'
+            }
         ]
     }
 ];

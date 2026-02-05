@@ -43,6 +43,9 @@ const { title, activeTab } = Astro.props;
             import Lenis from "lenis";
             import SplitType from "split-type";
             import { gsap } from "gsap";
+            import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+            gsap.registerPlugin(ScrollTrigger);
 
             // 1. Initialize Lenis (Smooth Scroll)
             const lenis = new Lenis({
@@ -60,99 +63,86 @@ const { title, activeTab } = Astro.props;
 
             requestAnimationFrame(raf);
 
+            // Connect Lenis to ScrollTrigger
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
             // 2. Initialize Text Animations
-            const initTextAnimations = () => {
-                // Selector for split text
+            const initTextAnimations = async () => {
+                // Wait for fonts to ensure correct splitting
+                await document.fonts.ready;
+
+                // SELECTORS
                 const splitTargets = document.querySelectorAll(
                     '[data-animate="split"]'
                 );
+                const fadeTargets = document.querySelectorAll(
+                    '[data-animate="fade"]'
+                );
 
+                // A. HANDLE SPLIT TEXT
                 splitTargets.forEach((target) => {
-                    // Split text into words/chars
-                    const type =
-                        target.getAttribute("data-split-type") || "words"; // 'words' or 'chars' or 'lines'
+                    const element = target as HTMLElement;
 
-                    const split = new SplitType(target as HTMLElement, {
+                    // 1. Split the text
+                    const type =
+                        element.getAttribute("data-split-type") || "words";
+                    const split = new SplitType(element, {
                         types: "lines, words, chars",
                         tagName: "span",
                     });
 
-                    // Wrap lines in overflow hidden containers
-                    // (SplitType creates .line elements automatically if configured, or we can use existing structure)
-                    // For simply staggering words:
+                    // 2. Add class to indicate splitting is done (for CSS safety)
+                    element.classList.add("is-splitting");
 
-                    // Create Observer
-                    const observer = new IntersectionObserver(
-                        (entries) => {
-                            entries.forEach((entry) => {
-                                if (entry.isIntersecting) {
-                                    target.classList.add("in-view");
+                    // 3. Set Initial State with GSAP immediately to prevent flash
+                    const animTargets =
+                        type === "chars" ? split.chars : split.words;
+                    gsap.set(animTargets, { y: "100%", opacity: 0 });
 
-                                    // GSAP Animation for more control
-                                    if (type === "chars") {
-                                        gsap.fromTo(
-                                            split.chars,
-                                            { y: "100%", opacity: 0 },
-                                            {
-                                                y: "0%",
-                                                opacity: 1,
-                                                duration: 0.8,
-                                                ease: "power3.out",
-                                                stagger: 0.02,
-                                            }
-                                        );
-                                    } else {
-                                        gsap.fromTo(
-                                            split.words,
-                                            { y: "100%", opacity: 0 },
-                                            {
-                                                y: "0%",
-                                                opacity: 1,
-                                                duration: 1,
-                                                ease: "power3.out",
-                                                stagger: 0.05,
-                                            }
-                                        );
-                                    }
-
-                                    observer.unobserve(target); // Animate once
-                                }
+                    // 4. Animate on Scroll
+                    ScrollTrigger.create({
+                        trigger: element,
+                        start: "top 85%", // Trigger when top of element hits 85% of viewport
+                        onEnter: () => {
+                            gsap.to(animTargets, {
+                                y: "0%",
+                                opacity: 1,
+                                duration: 1,
+                                ease: "power4.out",
+                                stagger: type === "chars" ? 0.02 : 0.05,
                             });
                         },
-                        { threshold: 0.1 }
-                    );
-
-                    observer.observe(target);
+                        once: true, // Animate only once
+                    });
                 });
 
-                // Simple Fade Up Targets
-                const fadeTargets = document.querySelectorAll(
-                    '[data-animate="fade"]'
-                );
-                const fadeObserver = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add("in-view");
-                                fadeObserver.unobserve(entry.target);
-                            }
-                        });
-                    },
-                    { threshold: 0.1 }
-                );
-
+                // B. HANDLE SIMPLE FADE ELEMENTS
                 fadeTargets.forEach((el) => {
                     el.classList.add("reveal-fade");
-                    fadeObserver.observe(el);
+
+                    ScrollTrigger.create({
+                        trigger: el,
+                        start: "top 90%",
+                        onEnter: () => {
+                            el.classList.add("in-view");
+                        },
+                        once: true,
+                    });
                 });
             };
 
             // Run on load
             initTextAnimations();
 
-            // Handle View Transitions (if enabled later, good practice to keep)
+            // Support View Transitions if added later
             document.addEventListener("astro:page-load", () => {
-                // Re-init if using View Transitions
+                // Clean up old ScrollTriggers if needed
+                ScrollTrigger.getAll().forEach((t) => t.kill());
+                initTextAnimations();
             });
         </script>
     </body>

@@ -88,6 +88,8 @@ body {
 .reveal-fade {
   opacity: 0;
   transform: translateY(30px);
+  will-change: opacity, transform;
+  /* Transitions handled by GSAP or class add */
   transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
@@ -96,31 +98,23 @@ body {
   transform: translateY(0);
 }
 
-/* 2. Split Text (Char/Word) defaults */
+/* 2. Split Text - Base classes */
+/* WE DO NOT set opacity 0 here by default to prevent FOUC / broken JS state. 
+   We let JS handle the initial hidden state. */
 .word,
 .char {
   display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Only hide if JS has initialized and added this class */
+.is-splitting .char,
+.is-splitting .word {
   opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fallback if GSAP takes a ms to start */
 }
 
-.char {
-  transform: translateY(40%);
+/* Fix for spaces in split text */
+.word {
+  white-space: nowrap;
 }
-
-.split-line {
-  overflow: hidden;
-  padding-bottom: 0.2em;
-  /* Prevent descender clipping */
-  margin-bottom: -0.2em;
-}
-
-/* When .in-view is added to the parent container */
-.animate-text.in-view .word,
-.animate-text.in-view .char {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger delays are handled via JS or we can set basic CSS generic delays */
