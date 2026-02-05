@@ -18,13 +18,9 @@ const Header = ({ activeTab }) => {
                 <div className="flex justify-between items-center h-[80px] px-6 md:px-12">
 
                     {/* 1. LOGO LEFT */}
-                    <a href="/" className="flex flex-col leading-none hover:opacity-70 transition-opacity z-50">
-                        <span className="font-display font-medium text-lg uppercase tracking-wider text-text">
-                            Romańska-Krysa
-                        </span>
-                        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-text/60">
-                            Kancelaria Adwokacka
-                        </span>
+                    {/* 1. LOGO LEFT */}
+                    <a href="/" className="flex items-center hover:opacity-80 transition-opacity z-50">
+                        <img src="/logo.jpeg" alt="Romańska-Krysa Kancelaria Adwokacka" className="h-14 w-auto object-contain" />
                     </a>
 
                     {/* 2. CENTER NAV (Desktop) */}
