@@ -3,20 +3,21 @@ import { ArrowUpRight } from 'lucide-react';
 
 const Footer = () => (
     <footer className="bg-text text-cream pt-24 pb-12 px-6 md:px-12 border-t border-text">
-        {/* Large CTA Heading */}
-        <div className="mb-24 border-b border-cream/20 pb-24">
-            <h2 className="font-display text-[12vw] leading-[0.85] text-cream uppercase">
-                Rezerwacja <br />
-                <span className="text-accent italic">Terminu</span>
-            </h2>
-            <div className="mt-12 flex justify-end">
-                <a href="/contact" className="group hidden md:flex items-center gap-4 text-xl font-display uppercase tracking-widest hover:text-accent transition-colors">
-                    Skontaktuj się ze mną
-                    <div className="w-12 h-12 rounded-full border border-cream/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-text transition-all">
-                        <ArrowUpRight className="w-5 h-5" />
-                    </div>
-                </a>
+        {/* Subtle CTA Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-20 border-b border-cream/20 pb-12">
+            <div>
+                <h3 className="font-display text-3xl md:text-4xl text-cream mb-2">
+                    Potrzebujesz wsparcia?
+                </h3>
+                <p className="font-sans text-cream/60 text-sm md:text-base tracking-wide">
+                    Skontaktuj się, aby omówić Twoją sprawę.
+                </p>
             </div>
+
+            <a href="/contact" className="group flex items-center gap-3 bg-cream text-text px-8 py-4 uppercase tracking-[0.15em] text-xs font-bold hover:bg-accent transition-colors duration-300">
+                Umów Konsultację
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
         </div>
 
         {/* Content Row: Text Columns + Map */}
