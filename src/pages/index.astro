@@ -171,29 +171,112 @@ import { ArrowUpRight } from "lucide-react";
 		</div>
 	</section>
 
-	{/* VALUES / ABOUT SHORT */}
-	<section
-		class="bg-primary text-cream px-6 md:px-12 py-32 relative overflow-hidden animate-on-scroll"
-	>
-		<div class="max-w-4xl mx-auto text-center relative z-10">
-			<p
-				class="font-sans text-sm uppercase tracking-[0.3em] mb-8 opacity-70"
-			>
-				Filozofia
-			</p>
-			<h2
-				class="font-display text-4xl md:text-6xl font-light leading-tight mb-12 animate-on-scroll delay-100"
-			>
-				"Nie traktuję prawa jako zbioru przepisów, ale jako narzędzie do
-				przywracania <span class="italic font-normal">równowagi</span> w
-				życiu moich Klientów."
-			</h2>
-			<a
-				href="/about"
-				class="inline-block border border-cream/30 text-cream px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-cream hover:text-primary transition-all animate-on-scroll delay-200"
-			>
-				O Mnie
-			</a>
+	{/* VALUES SECTION */}
+	<section class="px-6 md:px-12 py-24 md:py-32 bg-cream">
+		<div class="max-w-7xl mx-auto">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+				{/* Title Column */}
+				<div class="lg:col-span-4">
+					<span
+						class="block text-primary font-sans text-xs uppercase tracking-[0.3em] mb-6 animate-on-scroll"
+					>
+						Wartości
+					</span>
+					<h2
+						class="font-display text-5xl md:text-6xl text-text leading-[0.9] mb-8 animate-on-scroll delay-100"
+					>
+						Fundamenty <br />
+						<span class="text-primary italic">Współpracy</span>
+					</h2>
+					<p
+						class="font-sans text-text/70 leading-relaxed max-w-sm animate-on-scroll delay-200"
+					>
+						Wierzę, że skuteczna pomoc prawna opiera się na trzech
+						filarach, które są nienegocjowalne w mojej pracy.
+					</p>
+				</div>
+
+				{/* Values Grid */}
+				<div
+					class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 pt-12 lg:pt-0"
+				>
+					{/* Value 1 */}
+					<div class="animate-on-scroll delay-100 group">
+						<span
+							class="block font-mono text-xs text-primary/60 mb-4 group-hover:text-primary transition-colors"
+							>01</span
+						>
+						<h3
+							class="font-display text-2xl text-text mb-4 group-hover:translate-x-2 transition-transform duration-300"
+						>
+							Empatia
+						</h3>
+						<p
+							class="font-sans text-text/70 text-sm leading-relaxed"
+						>
+							Prawo medyczne i rodzinne dotyka najczulszych sfer
+							życia. Rozumiem emocje moich Klientów i zapewniam
+							wsparcie, które wykracza poza suche paragrafy.
+						</p>
+					</div>
+
+					{/* Value 2 */}
+					<div class="animate-on-scroll delay-200 group">
+						<span
+							class="block font-mono text-xs text-primary/60 mb-4 group-hover:text-primary transition-colors"
+							>02</span
+						>
+						<h3
+							class="font-display text-2xl text-text mb-4 group-hover:translate-x-2 transition-transform duration-300"
+						>
+							Transparentność
+						</h3>
+						<p
+							class="font-sans text-text/70 text-sm leading-relaxed"
+						>
+							Mówię jak jest. Uczciwie oceniam szanse procesowe i
+							nie składam obietnic bez pokrycia. Jasne zasady
+							rozliczeń i komunikacji to podstawa zaufania.
+						</p>
+					</div>
+
+					{/* Value 3 */}
+					<div class="animate-on-scroll delay-300 group">
+						<span
+							class="block font-mono text-xs text-primary/60 mb-4 group-hover:text-primary transition-colors"
+							>03</span
+						>
+						<h3
+							class="font-display text-2xl text-text mb-4 group-hover:translate-x-2 transition-transform duration-300"
+						>
+							Determinacja
+						</h3>
+						<p
+							class="font-sans text-text/70 text-sm leading-relaxed"
+						>
+							Dla sprawy. Indywidualnie dobieram strategię i
+							walczę o interes Klienta na każdym etapie
+							postępowania, nie bojąc się trudnych czy
+							precedensowych rozwiązań.
+						</p>
+					</div>
+
+					{/* Value 4 / CTA equivalent */}
+					<div
+						class="flex flex-col justify-end animate-on-scroll delay-300"
+					>
+						<a
+							href="/about"
+							class="group inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-text hover:text-primary transition-colors mt-auto"
+						>
+							Więcej o mnie
+							<span
+								class="w-8 h-[1px] bg-text/30 group-hover:w-16 group-hover:bg-primary transition-all duration-300"
+							></span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 </Layout>
