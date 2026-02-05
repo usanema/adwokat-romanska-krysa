@@ -31,9 +31,10 @@ The design is centralized in `src/styles/global.css`.
 1.  **Editorial Layout:** Use of staggered grids (e.g., Services page), sticky titles, and asymmetric layouts.
 2.  **Typography as Image:** Text is the main visual element. Headings are massive and often broken into multiple lines with varying indentation.
 3.  **Micro-Interactions:** 
-    *   Links have underline animations (`scale-x`).
-    *   Images have subtle zoom/grayscale-to-color transitions on hover.
-    *   Smooth scrolling is mandatory for the "premium" feel.
+    *   **Navigation:** "Leandra-style" hover effect — a thin, rounded square border (`rounded-md`, `border-primary`) fades in and scales up around the menu item text.
+    *   **Links:** Body links have underline animations (`scale-x`). Hero CTA mimics this text-link style (no buttons) for consistency.
+    *   **Images:** Images start grayscale and transition to color on hover.
+    *   **Smooth Scroll:** Mandatory `Lenis` integration for premium feel.
 4.  **Accordions:** Details (especially in Services) are hidden behind clean accordion interfaces to maintain minimalism.
 
 ## 4. Architecture & Key Files
@@ -57,7 +58,10 @@ To animate an element, add the class `animate-on-scroll` to it.
 ## 5. Development Guidelines
 *   **New Components:** Prefer React for interactive components (dropdowns, accordions). Use Astro for static layout.
 *   **Styling:** Use Tailwind utility classes. For repeated complex animations, define them in `global.css`.
-*   **Images:** Use high-quality, editorial-style photography. Currently using Unsplash placeholders.
+*   **Images:** 
+    *   Use local assets in `public/` for permanent branding images (e.g., `hero-anna.jpeg`). 
+    *   Use `object-top` for portraits to ensure face visibility.
+    *   Continue using high-quality editorial photography.
 
 ## 6. Current Status
 *   **Home:** 2-column Hero (Text Left, Image Right), Minimalist Services list, Philosophy section.
