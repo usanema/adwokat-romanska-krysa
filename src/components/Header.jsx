@@ -20,7 +20,7 @@ const Header = ({ activeTab }) => {
                     {/* 1. LOGO LEFT */}
                     {/* 1. LOGO LEFT */}
                     <a href="/" className="flex items-center hover:opacity-80 transition-opacity z-50">
-                        <img src="/logo.jpeg" alt="Romańska-Krysa Kancelaria Adwokacka" className="h-14 w-auto object-contain" />
+                        <img src="/logo.png" alt="Romańska-Krysa Kancelaria Adwokacka" className="h-10 md:h-14 w-auto object-contain" />
                     </a>
 
                     {/* 2. CENTER NAV (Desktop) */}
@@ -56,25 +56,35 @@ const Header = ({ activeTab }) => {
             </header>
 
             {/* Mobile Menu Overlay */}
-            {isMobileMenuOpen && (
-                <div className="fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center gap-8 animate-fade-in">
-                    {navItems.map((item) => (
-                        <a
-                            key={item.id}
-                            href={item.path}
-                            className="text-2xl font-display font-light text-text hover:text-ochre hover:italic transition-all"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
+            {/* Mobile Menu Overlay */}
+            <div
+                className={`fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center gap-8 px-6 transition-all duration-500 ease-in-out ${isMobileMenuOpen
+                    ? 'opacity-100 visible pointer-events-auto'
+                    : 'opacity-0 invisible pointer-events-none'
+                    }`}
+            >
+                {navItems.map((item, index) => (
                     <a
-                        href="/contact"
-                        className="mt-8 px-8 py-3 bg-text text-cream font-display uppercase tracking-widest text-sm"
+                        key={item.id}
+                        href={item.path}
+                        className={`text-3xl md:text-2xl font-display font-light text-text lowercase hover:text-ochre hover:italic transition-all duration-500 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                            }`}
+                        style={{ transitionDelay: `${index * 100}ms` }}
+                        onClick={() => setIsMobileMenuOpen(false)}
                     >
-                        Umów Wizytę
+                        {item.label}
                     </a>
-                </div>
-            )}
+                ))}
+                <a
+                    href="/contact"
+                    className={`mt-8 px-8 py-3 bg-text text-cream font-display uppercase tracking-widest text-sm transition-all duration-500 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                        }`}
+                    style={{ transitionDelay: '500ms' }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                >
+                    Umów Wizytę
+                </a>
+            </div>
         </>
     );
 };
