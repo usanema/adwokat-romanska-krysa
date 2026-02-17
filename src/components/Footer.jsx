@@ -37,8 +37,8 @@ const Footer = ({ showMap = true }) => (
 
                 <div className="space-y-4">
                     <h4 className="text-cream font-bold uppercase tracking-widest">Kontakt</h4>
-                    <p><a href="mailto:kontakt@adwokat-romanska.pl" className="hover:text-accent transition">kontakt@adwokat-romanska.pl</a></p>
-                    <p><a href="tel:+48123456789" className="hover:text-accent transition">+48 123 456 789</a></p>
+                    <p><a href="mailto:kontakt@adwokatromanskakrysa.pl" className="hover:text-accent transition">kontakt@adwokatromanskakrysa.pl</a></p>
+                    <p><a href="tel:+48660293665" className="hover:text-accent transition">+48 660 293 665</a></p>
                 </div>
 
                 <div className="space-y-4">

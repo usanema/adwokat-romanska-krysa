@@ -32,11 +32,11 @@ const ServiceDetail = ({ spec, index }) => (
 
         {/* Image Column */}
         <div className="relative group overflow-hidden animate-on-scroll">
-            <div className="aspect-[4/5] overflow-hidden bg-gray-100">
+            <div className="aspect-[4/5] overflow-hidden flex items-center justify-center">
                 <img
                     src={spec.image}
                     alt={spec.title}
-                    className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                 />
             </div>
             {/* Number - Absolute */}
