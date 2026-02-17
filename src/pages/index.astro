@@ -9,26 +9,24 @@ import { ArrowUpRight } from "lucide-react";
 		class="min-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 md:px-12 py-12 md:py-20 relative z-10 items-center"
 	>
 		{/* Left Column: Typography & Content */}
-		<div
-			class="flex flex-col justify-center h-full order-2 lg:order-1 mt-12 lg:mt-0"
-		>
+		<div class="flex flex-col justify-center h-full mt-12 lg:mt-0">
 			<div class="mb-12">
-				<h1
-					class="font-display text-[11vw] lg:text-[6vw] leading-[0.9] text-text uppercase break-words"
+				<span
+					class="block text-primary font-sans text-xs uppercase tracking-[0.3em] mb-4 animate-on-scroll"
+					>Adwokat</span
 				>
-					<span class="block animate-on-scroll">Spokój</span>
+				<h1
+					class="font-display text-[15vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] text-text uppercase break-words"
+				>
+					<span class="block animate-on-scroll">Anna</span>
 					<span
-						class="block pl-[10vw] italic text-primary animate-on-scroll delay-100"
-						>w Obliczu</span
-					>
-					<span
-						class="block text-right pr-[10vw] animate-on-scroll delay-200"
-						>Prawa</span
+						class="block text-primary italic animate-on-scroll delay-100"
+						>Romańska-Krysa</span
 					>
 				</h1>
 			</div>
 
-			<div class="max-w-md ml-0 lg:ml-[5vw] animate-on-scroll delay-300">
+			<div class="max-w-md animate-on-scroll delay-300">
 				<p
 					class="font-sans text-sm md:text-base leading-relaxed text-text/80 mb-8"
 				>
@@ -63,24 +61,26 @@ import { ArrowUpRight } from "lucide-react";
 
 		{/* Right Column: Image */}
 		<div
-			class="h-[60vh] lg:h-[85vh] w-full relative order-1 lg:order-2 animate-on-scroll delay-100"
+			class="h-[60vh] lg:h-[85vh] w-full relative animate-on-scroll delay-100"
 		>
 			<div class="absolute inset-0 bg-gray-200 overflow-hidden">
 				<img
 					src="/hero-anna.jpeg"
 					alt="Adwokat Anna Romańska-Krysa"
-					class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-grayscale duration-1000 ease-in-out"
+					class="w-full h-full object-cover object-top grayscale-0 md:grayscale md:hover:grayscale-0 transition-grayscale duration-1000 ease-in-out"
 				/>
 			</div>
 		</div>
 	</section>
 
 	{/* SERVICES LIST (Minimalist) */}
-	<section class="px-6 md:px-12 py-24 mb-24 border-t border-text/10">
+	<section
+		class="px-6 md:px-12 py-16 md:py-24 mb-16 md:mb-24 border-t border-text/10"
+	>
 		<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
 			<div class="md:col-span-4">
 				<h2
-					class="font-display text-4xl mb-6 sticky top-32 animate-on-scroll"
+					class="font-display text-4xl mb-6 static md:sticky top-32 animate-on-scroll"
 				>
 					Obszary <br />
 					<span class="text-primary italic">Praktyki</span>
@@ -172,7 +172,7 @@ import { ArrowUpRight } from "lucide-react";
 	</section>
 
 	{/* VALUES SECTION */}
-	<section class="px-6 md:px-12 py-24 md:py-32 bg-cream">
+	<section class="px-6 md:px-12 py-16 md:py-32 bg-cream">
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 				{/* Title Column */}

@@ -6,9 +6,10 @@ import "../styles/global.css";
 interface Props {
     title: string;
     activeTab?: string;
+    showFooterMap?: boolean;
 }
 
-const { title, activeTab } = Astro.props;
+const { title, activeTab, showFooterMap = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -32,14 +33,14 @@ const { title, activeTab } = Astro.props;
         <title>{title}</title>
     </head>
     <body
-        class="font-sans antialiased selection:bg-primary selection:text-cream"
+        class="font-sans antialiased selection:bg-primary selection:text-cream overflow-x-hidden"
     >
         <Header client:load activeTab={activeTab} />
         <main class="min-h-screen pt-[80px]">
             <!-- pt matching header height -->
             <slot />
         </main>
-        <Footer />
+        <Footer showMap={showFooterMap} />
 
         <script>
             import Lenis from "lenis";
@@ -54,6 +55,7 @@ const { title, activeTab } = Astro.props;
             });
 
             function raf(time) {
+                // @ts-ignore
                 lenis.raf(time);
                 requestAnimationFrame(raf);
             }

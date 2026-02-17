@@ -28,7 +28,7 @@ const AccordionItem = ({ title, content }) => {
 };
 
 const ServiceDetail = ({ spec, index }) => (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-32 ${index % 2 === 1 ? 'lg:mt-32' : ''}`}> {/* Stagger effect via top margin on odd items */}
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-16 md:mb-32 ${index % 2 === 1 ? 'lg:mt-32' : ''}`}> {/* Stagger effect via top margin on odd items */}
 
         {/* Image Column */}
         <div className="relative group overflow-hidden animate-on-scroll">
