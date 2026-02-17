@@ -3,7 +3,7 @@ export const specializations = [
         id: 'med',
         title: 'Prawo Medyczne',
         subtitle: 'Błędy Medyczne i Obsługa Podmiotów',
-        image: 'https://images.unsplash.com/photo-1516574187841-693083f7e496?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/medical-law.png',
         desc: 'Kompleksowa pomoc prawna zarówno dla pacjentów w sprawach błędów medycznych, jak i dla podmiotów leczniczych w zakresie odpowiedzialności zawodowej i organizacji.',
         details: [
             {
@@ -20,7 +20,7 @@ export const specializations = [
         id: 'comp',
         title: 'Prawo Odszkodowawcze',
         subtitle: 'Wypadki i Odpowiedzialność Cywilna',
-        image: 'https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/odszkodowanie-law.png',
         desc: 'Skuteczne dochodzenie roszczeń za szkody osobowe i majątkowe. Reprezentacja poszkodowanych w sporach z ubezpieczycielami i sprawcami szkód.',
         details: [
             {
@@ -41,7 +41,7 @@ export const specializations = [
         id: 'fam-prop',
         title: 'Prawo Rodzinne, Rzeczowe i Spadki',
         subtitle: 'Sprawy Osobiste i Majątkowe',
-        image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/family-law.png',
         desc: 'Wrażliwe prowadzenie spraw rodzinnych oraz porządkowanie sytuacji prawnej majątku i spadków. Dbam o zabezpieczenie interesów Klienta w trudnych sytuacjach życiowych.',
         details: [
             {
@@ -62,7 +62,7 @@ export const specializations = [
         id: 'debt',
         title: 'Windykacja Należności',
         subtitle: 'Skuteczne Odzyskiwanie Długów',
-        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/windykacja.png',
         desc: 'Kompleksowa obsługa wierzycieli – od polubownych wezwań do zapłaty, przez proces sądowy, aż po nadzór nad egzekucją komorniczą.',
         details: [
             {
@@ -79,7 +79,7 @@ export const specializations = [
         id: 'pen',
         title: 'Prawo Karne',
         subtitle: 'Obrona i Reprezentacja',
-        image: 'https://images.unsplash.com/photo-1453945619913-79ec89a82c51?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/karne.png',
         desc: 'Aktywna obrona oskarżonych i podejrzanych oraz wsparcie pokrzywdzonych przestępstwem na każdym etapie procesu karnego.',
         details: [
             {
@@ -100,7 +100,7 @@ export const specializations = [
         id: 'med-arb',
         title: 'Mediacje',
         subtitle: 'Polubowne Rozwiązywanie Sporów',
-        image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: '/mediacje.png',
         desc: 'Jako stały mediator sądowy wspieram strony w wypracowaniu porozumienia bez konieczności długotrwałego procesu sądowego.',
         details: [
             {
