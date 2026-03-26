@@ -7,9 +7,10 @@ interface Props {
     title: string;
     activeTab?: string;
     showFooterMap?: boolean;
+    showCTA?: boolean;
 }
 
-const { title, activeTab, showFooterMap = true } = Astro.props;
+const { title, activeTab, showFooterMap = true, showCTA = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@ const { title, activeTab, showFooterMap = true } = Astro.props;
             <!-- pt matching header height -->
             <slot />
         </main>
-        <Footer showMap={showFooterMap} />
+        <Footer showMap={showFooterMap} showCTA={showCTA} />
 
         <script>
             import Lenis from "lenis";

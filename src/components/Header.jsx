@@ -8,7 +8,6 @@ const Header = ({ activeTab }) => {
         { id: 'home', label: 'Start', path: '/' },
         { id: 'about', label: 'O Mnie', path: '/about' },
         { id: 'services', label: 'Specjalizacje', path: '/services' },
-        { id: 'blog', label: 'Blog', path: '/blog' },
         { id: 'contact', label: 'Kontakt', path: '/contact' },
     ];
 

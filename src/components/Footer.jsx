@@ -1,24 +1,26 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-const Footer = ({ showMap = true }) => (
+const Footer = ({ showMap = true, showCTA = true }) => (
     <footer className="bg-text text-cream pt-12 md:pt-24 pb-12 px-6 md:px-12 border-t border-text">
         {/* Subtle CTA Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12 md:mb-20 border-b border-cream/20 pb-12">
-            <div>
-                <h3 className="font-display text-3xl md:text-4xl text-cream mb-2">
-                    Potrzebujesz wsparcia?
-                </h3>
-                <p className="font-sans text-cream/60 text-sm md:text-base tracking-wide">
-                    Skontaktuj się, aby omówić Twoją sprawę.
-                </p>
-            </div>
+        {showCTA && (
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12 md:mb-20 border-b border-cream/20 pb-12">
+                <div>
+                    <h3 className="font-display text-3xl md:text-4xl text-cream mb-2">
+                        Potrzebujesz wsparcia?
+                    </h3>
+                    <p className="font-sans text-cream/60 text-sm md:text-base tracking-wide">
+                        Skontaktuj się, aby omówić Twoją sprawę.
+                    </p>
+                </div>
 
-            <a href="/contact" className="group flex items-center gap-3 bg-cream text-text px-8 py-4 uppercase tracking-[0.15em] text-xs font-bold hover:bg-accent transition-colors duration-300">
-                Umów Konsultację
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-        </div>
+                <a href="/contact" className="group flex items-center gap-3 bg-cream text-text px-8 py-4 uppercase tracking-[0.15em] text-xs font-bold hover:bg-accent transition-colors duration-300">
+                    Umów Konsultację
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+            </div>
+        )}
 
         {/* Content Row: Text Columns + Map */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -52,7 +54,7 @@ const Footer = ({ showMap = true }) => (
 
                 <div className="space-y-4 flex flex-col justify-end hidden lg:flex">
                     <p>&copy; {new Date().getFullYear()}</p>
-                    <p className="text-xs opacity-50 text-wrap">Wszelkie prawa zastrzeżone.<br />Designed with precision.</p>
+                    <p className="text-xs opacity-50 text-wrap">Wszelkie prawa zastrzeżone.</p>
                 </div>
             </div>
 
@@ -64,8 +66,7 @@ const Footer = ({ showMap = true }) => (
 
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2551.1550275591703!2d19.01016007666527!3d50.25168880165497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716cff8a4395793%3A0xc1ec742445cdace6!2sul.%20Henryka%20Jordana%2013a%2C%20Katowice!5e0!3m2!1spl!2spl!4v1771250905256!5m2!1spl!2spl"
-                        width="100%"
-                        height="100%"
+                        className="absolute w-full h-[calc(100%+300px)] -top-[150px] left-0 pointer-events-none"
                         style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(1.2)' }}
                         allowFullScreen=""
                         loading="lazy"
@@ -91,7 +92,7 @@ const Footer = ({ showMap = true }) => (
             {/* Mobile Copyright (Moved below Map on mobile) */}
             <div className="lg:hidden w-full space-y-4 flex flex-col justify-end text-cream/70 font-sans text-sm tracking-wide">
                 <p>&copy; {new Date().getFullYear()}</p>
-                <p className="text-xs opacity-50 text-wrap">Wszelkie prawa zastrzeżone.<br />Designed with precision.</p>
+                <p className="text-xs opacity-50 text-wrap">Wszelkie prawa zastrzeżone</p>
             </div>
         </div>
 
